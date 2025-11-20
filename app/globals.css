@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Local font faces (safe to keep even if files are not present yet) */
+@font-face {
+  font-family: 'Palo Neue';
+  src:
+    url('/fonts/PaloNeue-Regular.woff2') format('woff2'),
+    url('/fonts/PaloNeue-Regular.woff') format('woff'),
+    url('/fonts/PaloNeue-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  min-height: 100vh;
+  font-family:
+    'Palo Neue',
+    'Plus Jakarta Sans',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    'Noto Sans',
+    'Apple Color Emoji',
+    'Segoe UI Emoji';
+}
