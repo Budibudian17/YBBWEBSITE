@@ -10,8 +10,8 @@ export default function VideoSection() {
   const [animating, setAnimating] = useState(false);
 
   const videos = [
-    { label: 'JYS Program 2025', src: '/video/osaka2025.mp4' },
-    { label: 'JYS Program 2024', src: '/video/osaka2024.mp4' },
+    { label: 'JYS Program 2025', src: '/video/osaka2025_web.mp4' },
+    { label: 'JYS Program 2024', src: '/video/osaka2024_web.mp4' },
   ];
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function VideoSection() {
         <div className="relative overflow-hidden rounded-2xl shadow-[0_20px_60px_rgba(2,6,23,0.25)] ring-1 ring-slate-900/20">
           <video
             ref={videoRef}
-            className={`block h-[46vh] w-full object-cover md:h-[56vh] lg:h-[64vh] transition duration-500 ease-out ${animating ? 'scale-95' : 'scale-100'}`}
+            className={`block h-[46vh] w-full object-cover transition duration-500 ease-out md:h-[56vh] lg:h-[64vh] ${animating ? 'scale-95' : 'scale-100'}`}
             playsInline
             autoPlay
             muted={muted}

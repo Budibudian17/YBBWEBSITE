@@ -71,7 +71,7 @@ export default function RegistrationTutorial() {
                 muted={muted}
                 loop
                 poster="/img/registrasibanner.png"
-                src="/video/tutorialregist.mp4"
+                src="/video/tutorialregist_web.mp4"
               />
 
               {/* Badge pojok kiri */}
