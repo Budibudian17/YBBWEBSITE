@@ -179,7 +179,7 @@ export default function RegistrationTypesSection() {
                 href="#apply-form"
                 className="inline-flex items-center justify-center rounded-md bg-pink-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-pink-700"
               >
-                Choose Self Funded
+                Choose Self Fundedd
               </a>
             </div>
           </div>
