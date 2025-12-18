@@ -37,6 +37,7 @@ export const jysSectionTheme = {
     card: 'mx-auto max-w-7xl overflow-hidden rounded-3xl px-6 py-12 text-accent-foreground shadow-[0_18px_60px_rgba(15,23,42,0.35)] sm:px-10 lg:px-16',
     cardBackground: '/img/bgshorts60.jpg',
     title: 'text-2xl font-extrabold leading-tight text-blue-950 sm:text-3xl lg:text-4xl',
+    description: 'mt-3 max-w-md text-sm leading-relaxed text-blue-950/90 sm:text-base lg:text-lg',
     shortsRow: 'grid grid-cols-3 gap-5',
     shortWrapper: 'relative h-80 w-full overflow-hidden bg-black/15',
     shortIframe: 'absolute inset-0 h-full w-full border-0',
