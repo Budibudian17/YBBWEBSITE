@@ -56,12 +56,12 @@ export default function GetInTouchSection({
   items = DEFAULT_ITEMS,
 }: GetInTouchProps) {
   return (
-    <section className={jysSectionTheme.momentsShorts.sectionWrapper}>
+    <section className={jysSectionTheme.getInTouch.sectionWrapper}>
       <div
-        className={jysSectionTheme.momentsShorts.card}
+        className={jysSectionTheme.getInTouch.card}
         style={{
           backgroundImage: `url(${jysSectionTheme.getInTouch.cardBackground})`,
-          backgroundSize: 'cover',
+          backgroundSize: 'auto 103%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }}

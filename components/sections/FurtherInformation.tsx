@@ -38,7 +38,7 @@ export default function FurtherInformationSection({
     <section
       className={jysSectionTheme.furtherInfo.sectionWrapper}
       style={{
-        backgroundImage: "url('/img/halfbgs.png')",
+        backgroundImage: "url('/img/halfback.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',

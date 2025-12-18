@@ -42,12 +42,13 @@ export const jysSectionTheme = {
     shortIframe: 'absolute inset-0 h-full w-full border-0',
   },
   furtherInfo: {
-    sectionWrapper: 'relative w-full py-12 sm:py-14',
+    sectionWrapper: 'relative w-full py-20 sm:py-28',
     card: 'mx-auto flex max-w-7xl items-center px-6 sm:px-10 lg:px-16',
     innerGrid:
       'grid w-full items-center gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:gap-12',
-    leftCol: 'order-2 w-full max-w-xl space-y-4 text-blue-950 lg:order-1 lg:pr-6',
-    description: 'mt-2 max-w-md text-sm leading-relaxed text-blue-950/90 sm:text-base',
+    leftCol:
+      'order-2 flex w-full max-w-xl flex-col justify-center space-y-4 text-blue-950 lg:order-1 lg:pr-6',
+    description: 'mt-3 max-w-md text-sm leading-relaxed text-blue-950/90 sm:text-base lg:text-lg',
     buttonsCol: 'mt-4 flex flex-col items-start gap-3',
     guideButtonBase:
       'inline-flex items-center justify-center gap-2 rounded-full border-2 px-4 py-2.5 text-sm font-semibold shadow-sm transition',
@@ -212,11 +213,11 @@ export const jysSectionTheme = {
       'bg-accent text-accent-foreground hover:bg-accent/90 focus:ring-accent inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-2',
   },
   getInTouch: {
-    cardBackground: '/img/getintouchs.png',
-    sectionWrapper: 'relative w-full bg-[#ffffff72] py-16 sm:py-20',
-    card: 'mx-auto max-w-7xl overflow-hidden rounded-3xl bg-transparent px-6 py-10 text-white sm:px-10 lg:px-16',
+    cardBackground: '/img/getintuch.png',
+    sectionWrapper: 'relative w-full overflow-visible bg-transparent py-16 sm:py-20',
+    card: 'mx-auto max-w-7xl bg-transparent px-6 py-10 text-white sm:px-10 lg:px-16',
     layoutGrid: 'grid items-center gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)]',
-    imageWrapper: 'relative mx-auto h-64 w-full max-w-sm sm:h-72',
+    imageWrapper: 'relative mx-auto h-64 w-full max-w-sm sm:h-72 overflow-visible',
     image: 'object-contain',
     title: 'text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl',
     list: 'mt-6 space-y-3',
@@ -274,6 +275,71 @@ export const jysSectionTheme = {
   },
   programsBenefits: {
     iconCircle: 'grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-pink-600 text-white',
+  },
+  programsActivities: {
+    sectionWrapper:
+      "relative w-full bg-[url('/img/bgshorts60.jpg')] bg-cover bg-center bg-no-repeat py-10 sm:py-14 lg:py-16",
+    overlay: 'absolute inset-0 bg-white/80',
+    container: 'relative mx-auto max-w-7xl px-6 lg:px-8',
+    cardsGrid: 'mt-8 grid gap-6 md:grid-cols-2',
+    card: 'flex h-full flex-col rounded-3xl bg-white px-5 py-5 shadow-[0_18px_50px_rgba(15,23,42,0.24)] ring-1 ring-slate-200/80 sm:px-6 sm:py-6',
+    metaRow: 'flex flex-wrap items-center gap-3 text-xs font-medium text-slate-600 sm:text-[13px]',
+    metaItem: 'flex items-center gap-1.5',
+    metaIcon: 'h-4 w-4 text-pink-600',
+    titleWrapper: 'mt-3 flex-1',
+    title: 'text-base font-extrabold text-blue-950 sm:text-lg',
+    bulletsGrid: 'mt-3 grid gap-x-6 gap-y-1 text-sm text-slate-800 sm:grid-cols-2',
+    bulletRow: 'flex items-start gap-2',
+    bulletIconWrapper: 'mt-0.5 text-emerald-500',
+    description: 'mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm',
+    note: 'mx-auto mt-6 max-w-3xl text-center text-xs text-slate-600 sm:text-sm',
+  },
+  programsSteps: {
+    sectionWrapper:
+      'relative w-full bg-gradient-to-b from-white to-pink-50/50 py-10 sm:py-14 lg:py-16',
+    container: 'relative mx-auto max-w-5xl px-6 lg:px-8',
+    timelineGrid: 'mt-8 grid grid-cols-[auto,1fr] gap-x-5 sm:gap-x-7',
+    lineCol: 'relative col-span-1 row-span-full',
+    line: 'mx-auto h-full w-px bg-gradient-to-b from-pink-400 via-pink-300 to-transparent',
+    stepsCol: 'space-y-6',
+    stepRow: 'grid grid-cols-[auto,1fr] gap-x-4 gap-y-1',
+    stepIconCol: 'relative col-span-1 flex flex-col items-center',
+    stepIconCircle:
+      'grid h-9 w-9 place-items-center rounded-full bg-pink-600 text-white shadow-[0_10px_25px_rgba(219,39,119,0.6)]',
+    stepLabel: 'mt-1 text-[11px] font-semibold uppercase tracking-wide text-pink-600',
+    stepCard:
+      'col-span-1 rounded-2xl bg-white/95 px-4 py-4 shadow-[0_10px_30px_rgba(15,23,42,0.12)] ring-1 ring-slate-200/70 sm:px-5 sm:py-5',
+    stepTitle: 'text-sm font-extrabold text-blue-950 sm:text-base',
+    stepList: 'mt-2 space-y-1.5 text-xs text-slate-700 sm:text-sm',
+    stepListItem: 'flex gap-2',
+    stepListBulletIcon: 'mt-1 hidden text-emerald-500 sm:inline',
+  },
+  programsSchedules: {
+    sectionWrapper: 'relative w-full bg-white py-10 sm:py-14 lg:py-16',
+    container: 'relative mx-auto max-w-6xl px-6 lg:px-8',
+    tableWrapper:
+      'mt-8 overflow-hidden rounded-3xl bg-white shadow-[0_18px_50px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/80',
+    tableInner: 'overflow-x-auto',
+    table: 'min-w-full divide-y divide-slate-200 text-sm',
+    thead: 'bg-pink-50',
+    headerRow: 'text-left text-xs font-semibold uppercase tracking-wide text-slate-500',
+    headerCell: 'px-5 py-3 sm:px-6',
+    body: 'divide-y divide-slate-100 bg-white',
+    row: 'align-top text-[13px] text-slate-800',
+    cellDate: 'whitespace-nowrap px-5 py-4 text-slate-700 sm:px-6',
+    cellStatus: 'px-5 py-4 sm:px-6',
+    cellName: 'px-5 py-4 font-semibold text-blue-950 sm:px-6',
+    cellDesc: 'px-5 py-4 text-slate-600 sm:px-6',
+    note: 'mx-auto mt-4 max-w-3xl text-center text-xs text-slate-600 sm:mt-5 sm:text-sm',
+    statusActive:
+      'inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-100',
+    statusActiveDot: 'h-1.5 w-1.5 rounded-full bg-emerald-500',
+    statusUpcoming:
+      'inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-100',
+    statusUpcomingDot: 'h-1.5 w-1.5 rounded-full bg-amber-500',
+    statusClosed:
+      'inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 ring-1 ring-slate-200',
+    statusClosedDot: 'h-1.5 w-1.5 rounded-full bg-slate-400',
   },
   insightsStats: {
     iconCircle: 'grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-pink-600 text-white',
@@ -354,22 +420,6 @@ export const jysSectionTheme = {
       'mt-8 flex items-center gap-3 rounded-xl bg-pink-50 px-4 py-3 text-xs text-slate-900 border-l-4 border-pink-400/80 shadow-[0_8px_30px_rgba(2,6,23,0.06)]',
     noteIcon: 'h-4 w-4 text-pink-500',
     noteEmphasis: 'font-semibold text-pink-700',
-  },
-  promoCta: {
-    sectionWrapper:
-      "relative w-full overflow-hidden bg-[url('/img/ctabekground.png')] bg-cover bg-center bg-no-repeat py-12 text-[#172554] sm:py-16 lg:py-20",
-    innerGrid:
-      'relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-6 lg:grid-cols-2 lg:gap-10 lg:px-8',
-    title: 'text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl',
-    body: 'text-white-200 mt-4 max-w-xl',
-    primaryButton:
-      'hover:bg-accent/90 inline-flex items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground shadow-sm transition focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2',
-    videoCol: 'relative z-10 flex flex-col',
-    videoCard:
-      'rounded-2xl bg-white/95 p-3 shadow-[0_18px_50px_rgba(15,23,42,0.45)] ring-1 ring-slate-200/70',
-    videoFrameWrapper: 'relative aspect-video w-full overflow-hidden rounded-xl bg-black/5',
-    videoTitle: 'text-base font-semibold text-blue-950',
-    videoDesc: 'mt-1 text-xs text-slate-600 sm:text-sm',
   },
   programsTestimonialsGrid: {
     card: 'rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition will-change-transform hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] hover:ring-pink-200',
@@ -456,6 +506,24 @@ export const jysSectionTheme = {
       'text-blue-900/70 hover:bg-pink-50 hover:text-blue-950 hover:shadow-sm hover:ring-1 hover:ring-pink-200',
     tabActiveUnderline: 'absolute inset-x-0 bottom-0 block h-0.5 bg-pink-600',
     tabLabelIcon: 'h-4 w-4 text-pink-600',
+  },
+  furtherInfoPrograms: {
+    sectionWrapper: 'relative w-full py-20 sm:py-28',
+    card: 'mx-auto flex max-w-7xl items-center px-6 sm:px-10 lg:px-16',
+    innerGrid:
+      'grid w-full items-center gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:gap-12',
+    leftCol:
+      'order-2 flex w-full max-w-xl flex-col justify-center space-y-4 text-blue-950 lg:order-1 lg:pr-6',
+    description: 'mt-3 max-w-md text-sm leading-relaxed text-blue-950/90 sm:text-base lg:text-lg',
+    buttonsCol: 'mt-4 flex flex-col items-start gap-3',
+    guideButtonBase:
+      'inline-flex items-center justify-center gap-2 rounded-full border-2 px-4 py-2.5 text-sm font-semibold shadow-sm transition',
+    guideButtonPrimary: 'border-pink-500/80 bg-white/95 text-pink-700 hover:bg-white',
+    guideButtonSecondary: 'border-blue-500/70 bg-blue-50/90 text-blue-800 hover:bg-blue-100',
+    flagCircle: 'inline-flex h-5 w-5 items-center justify-center overflow-hidden rounded-full',
+    rightCol: 'order-1 relative flex w-full justify-center lg:order-2',
+    mockupWrapper:
+      'relative h-80 w-full max-w-xs -mt-6 sm:h-96 sm:max-w-sm lg:h-[420px] lg:max-w-md lg:-mt-10 drop-shadow-[0_26px_70px_rgba(15,23,42,0.65)]',
   },
 } as const;
 

@@ -37,7 +37,7 @@ export default function AdditionalPrograms() {
     },
   ];
   return (
-    <section className="bg-[#edf5ff] px-6 py-12 sm:py-14 md:py-16 lg:px-8">
+    <section className="px-6 py-12 sm:py-14 md:py-16 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader title="Our Additional Programs" />
         <p className={jysSectionTheme.programsAdditional.subtitle}>

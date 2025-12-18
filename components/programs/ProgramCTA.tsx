@@ -1,6 +1,6 @@
-export default function PromoCTA() {
+export default function ProgramCTA() {
   return (
-    <section className="relative w-full overflow-hidden bg-[url('/img/ctabekground.png')] bg-cover bg-center bg-no-repeat py-12 text-[#172554] sm:py-16 lg:py-20">
+    <section className="relative w-full overflow-hidden bg-[url('/img/programregist.png')] bg-cover bg-center bg-no-repeat py-12 text-[#172554] sm:py-16 lg:py-20">
       {/* Shape buat background */}
       <div className="pointer-events-none absolute -left-20 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-white/10 blur-3xl" />
@@ -10,7 +10,7 @@ export default function PromoCTA() {
         {/* Isi konten sectionnya */}
         <div className="relative z-10">
           <h2 className="text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
-            Ready to Innovate? Join Us Now!
+            Raise Your Hand, Be the Future Leaders
           </h2>
           <p className="text-white-200 mt-4 max-w-xl">
             Be part of the Japan Youth Summit and co-create impactful solutions for a sustainable

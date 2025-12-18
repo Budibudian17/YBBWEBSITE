@@ -22,89 +22,146 @@ function useCountdown(target: Date) {
 }
 
 export default function CurrentProgram() {
-  const countdown = useCountdown(new Date('2026-02-09T00:00:00Z'));
   return (
-    <section className="bg-[#eef5ff] px-6 py-10 sm:py-12 md:py-14 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeader title="Active Programs" />
-        <p className="-mt-6 mb-6 text-center text-sm text-pink-600 sm:mb-8 sm:text-base">
-          Current programs open for registration and participation
-        </p>
-        <div className="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-200">
-          <div className="grid items-stretch md:grid-cols-2">
-            {/* Kiri: konten ringkas */}
-            <div className="p-6 sm:p-8 md:p-10">
-              {/* Baris countdown */}
-              <div className="mx-auto max-w-xl">
-                <div className="grid grid-cols-4 gap-3 sm:gap-4">
-                  <CountdownPill value={countdown.days} label="Days" />
-                  <CountdownPill value={countdown.hours} label="Hours" />
-                  <CountdownPill value={countdown.minutes} label="Minutes" />
-                  <CountdownPill value={countdown.seconds} label="Seconds" />
+    <section className="sm:py-18 py-14 md:py-20">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+          {/* Kiri: deskripsi panjang + theme */}
+          <div className="space-y-5 text-blue-950">
+            <SectionHeader eyebrow="Active Program" title="Japan Youth Summit 2026" align="left" />
+            <p className="text-sm leading-7 text-slate-700 sm:text-base">
+              Japan Youth Summit (JYS) 2026 is an international youth forum that brings together
+              passionate young leaders to discuss, design, and drive collaborative solutions for a
+              more sustainable and inclusive future in Asia and beyond. Throughout the program,
+              participants will engage in panel discussions, cultural exchanges, and hands-on
+              workshops guided by experienced mentors and practitioners.
+            </p>
+            <p className="text-sm leading-7 text-slate-700 sm:text-base">
+              Beyond the formal sessions, JYS 2026 is also a space to build long-term friendships
+              and cross-border collaborations. Delegates will have the opportunity to present their
+              ideas, receive constructive feedback, and turn their initiatives into real impact in
+              their respective communities after the summit.
+            </p>
+            <p className="text-sm leading-7 text-slate-700 sm:text-base">
+              The program also includes field visits, cultural immersion activities, and
+              collaborative project sessions that allow participants to directly experience local
+              contexts while sharpening their leadership, communication, and problem-solving skills.
+              By the end of the summit, every delegate is expected to return home with a clearer
+              action plan and a stronger international network to support their initiatives.
+            </p>
+
+            <div className="mt-4 space-y-3">
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-pink-600">
+                  Program Theme
+                </h3>
+                <p className="mt-1 text-sm font-semibold text-blue-950 sm:text-base">
+                  Collaboration in Diversity: Young Leaders Shaping a Sustainable Future
+                </p>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-pink-600">
+                  Subthemes
+                </h3>
+                <div className="mt-2 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-2xl bg-white px-4 py-3 text-sm font-medium text-blue-950 shadow-[0_10px_30px_rgba(15,23,42,0.08)] ring-1 ring-slate-200/80">
+                    Youth Leadership and Community Development
+                  </div>
+                  <div className="rounded-2xl bg-white px-4 py-3 text-sm font-medium text-blue-950 shadow-[0_10px_30px_rgba(15,23,42,0.08)] ring-1 ring-slate-200/80">
+                    Sustainable Tourism and Cultural Preservation
+                  </div>
+                  <div className="rounded-2xl bg-white px-4 py-3 text-sm font-medium text-blue-950 shadow-[0_10px_30px_rgba(15,23,42,0.08)] ring-1 ring-slate-200/80">
+                    Innovation, Digital Economy, and Social Entrepreneurship
+                  </div>
+                  <div className="rounded-2xl bg-white px-4 py-3 text-sm font-medium text-blue-950 shadow-[0_10px_30px_rgba(15,23,42,0.08)] ring-1 ring-slate-200/80">
+                    Global Networking and Cross-Cultural Collaboration
+                  </div>
                 </div>
-                <p className="mt-3 text-center text-[11px] font-medium uppercase tracking-wide text-gray-500">
-                  Event Starts In
-                </p>
-              </div>
-
-              {/* Judul & deskripsi */}
-              <div className="mt-6">
-                <div className={jysSectionTheme.programsCurrent.statusBadge}>Registration Open</div>
-                <h2 className="mt-3 text-2xl font-extrabold leading-tight text-gray-900 sm:text-3xl">
-                  Japan Youth Summit 2026
-                </h2>
-                <p className={jysSectionTheme.programsCurrent.subtitle}>
-                  Collaboration in Diversity
-                </p>
-                <p className="mt-3 text-sm leading-6 text-gray-600">
-                  Dive into our world through this exciting showcase of past programs and inspiring
-                  success stories! See firsthand the amazing moments and the vibrant community
-                  waiting for you.
-                </p>
-              </div>
-
-              {/* Tombol aksi (CTA) */}
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a href="/apply" className={jysSectionTheme.programsCurrent.primaryCta}>
-                  Register Now
-                </a>
-                <a href="#" className={jysSectionTheme.programsCurrent.secondaryCta}>
-                  Download Brochure
-                </a>
-                <a
-                  href="/programs/jys-2026"
-                  className={jysSectionTheme.programsCurrent.tertiaryCta}
-                >
-                  View Guidelines
-                </a>
               </div>
             </div>
+          </div>
 
-            {/* Kanan: gambar cover */}
-            <div className="relative min-h-[220px] md:min-h-full">
-              <Image
-                src="/img/coverjysbrosur.png"
-                alt="Program Cover"
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
-                priority
-              />
+          {/* Kanan: kartu program seperti contoh */}
+          <div className="mx-auto w-fit">
+            <div className="rounded-3xl bg-white p-4 shadow-[0_18px_60px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/80 sm:p-5">
+              {/* Gambar cover */}
+              <div className="relative overflow-hidden rounded-2xl bg-slate-100">
+                <Image
+                  src="/img/jys26posters.png"
+                  alt="Japan Youth Summit 2026 cover"
+                  width={260}
+                  height={360}
+                  className="h-auto w-auto object-contain"
+                  priority
+                />
+              </div>
+
+              {/* Info program */}
+              <div className="mt-4 space-y-3 text-sm text-slate-700">
+                <div className="flex items-start gap-2">
+                  <MapPin className="mt-0.5 h-4 w-4 text-pink-600" />
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      Location
+                    </p>
+                    <p className="text-sm font-semibold text-blue-950">Osaka &amp; Kyoto, Japan</p>
+                  </div>
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="flex items-start gap-2">
+                    <CalendarDays className="mt-0.5 h-4 w-4 text-pink-600" />
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                        Duration
+                      </p>
+                      <p className="text-sm font-semibold text-blue-950">5 Days</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <Square className="mt-0.5 h-4 w-4 text-pink-600" />
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                        Program Format
+                      </p>
+                      <p className="text-sm font-semibold text-blue-950">On-site in Japan</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-2">
+                  <Calendar className="mt-0.5 h-4 w-4 text-pink-600" />
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      Event Dates
+                    </p>
+                    <p className="text-sm font-semibold text-blue-950">02 – 06 February 2026</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tombol guidebook */}
+              <div className="mt-5 flex flex-col gap-3">
+                <a
+                  href="#guidebook-en"
+                  className={`${jysSectionTheme.homeRegistration.guideSecondary} flex w-full items-center justify-center gap-2 text-sm`}
+                >
+                  <span className="text-lg">🇬🇧</span>
+                  <span>Read Guidebook (Eng)</span>
+                </a>
+                <a
+                  href="#guidebook-id"
+                  className={`${jysSectionTheme.homeRegistration.guidePrimary} flex w-full items-center justify-center gap-2 text-sm`}
+                >
+                  <span className="text-lg">🇮🇩</span>
+                  <span>Read Guidebook (Ind)</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function CountdownPill({ value, label }: { value: number; label: string }) {
-  const v = String(value).padStart(2, '0');
-  return (
-    <div className="rounded-lg border border-pink-200 bg-pink-50 px-3 py-2 text-center">
-      <div className="text-xl font-extrabold text-pink-700 sm:text-2xl">{v}</div>
-      <div className="text-[11px] font-semibold uppercase tracking-wide text-pink-600">{label}</div>
-    </div>
   );
 }
 

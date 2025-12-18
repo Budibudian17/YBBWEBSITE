@@ -1,39 +1,18 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Search as SearchIcon, ChevronDown, Menu, X } from 'lucide-react';
+import { Search as SearchIcon, Menu, X } from 'lucide-react';
 
 const navItems: string[] = ['Home', 'Programs', 'Partners & Sponsors', 'Announcements'];
-const programItems: { label: string; href: string }[] = [
-  { label: 'Program Overview', href: '/programs' },
-  { label: 'Insight & Analytics', href: '/programs/insights' },
-  { label: 'Photo Gallery', href: '/programs/gallery' },
-  { label: 'Testimonials', href: '/programs/testimonials' },
-];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [scrolled, setScrolled] = useState(false);
-  const [progOpen, setProgOpen] = useState(false);
-  const [progMobileOpen, setProgMobileOpen] = useState(false);
   const pathname = usePathname();
-  const progRef = useRef<HTMLDivElement | null>(null);
-  const closeTimer = useRef<number | null>(null);
-
-  const cancelClose = () => {
-    if (closeTimer.current) {
-      clearTimeout(closeTimer.current);
-      closeTimer.current = null;
-    }
-  };
-  const scheduleClose = () => {
-    cancelClose();
-    closeTimer.current = window.setTimeout(() => setProgOpen(false), 180);
-  };
 
   const hrefFor = (item: string): string => {
     switch (item) {
@@ -54,23 +33,14 @@ export function Navbar() {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setSearchOpen(false);
-        setProgOpen(false);
       }
     };
     window.addEventListener('keydown', onKey);
     const onScroll = () => setScrolled(window.scrollY > 0);
     window.addEventListener('scroll', onScroll, { passive: true });
-    const onDocMouseDown = (e: MouseEvent) => {
-      if (progRef.current && !progRef.current.contains(e.target as Node)) {
-        setProgOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', onDocMouseDown);
     return () => {
       window.removeEventListener('keydown', onKey);
       window.removeEventListener('scroll', onScroll);
-      document.removeEventListener('mousedown', onDocMouseDown);
-      cancelClose();
     };
   }, []);
 
@@ -108,69 +78,6 @@ export function Navbar() {
               {navItems.map(item => {
                 const href = hrefFor(item);
                 const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
-                if (item === 'Programs') {
-                  return (
-                    <div
-                      key={item}
-                      className="relative"
-                      ref={progRef}
-                      onMouseEnter={() => {
-                        cancelClose();
-                        setProgOpen(true);
-                      }}
-                      onMouseLeave={scheduleClose}
-                      onBlur={e => {
-                        // kalo fokus pindah keluar area dropdown, tutup
-                        if (progRef.current && !progRef.current.contains(e.relatedTarget as Node)) {
-                          setProgOpen(false);
-                        }
-                      }}
-                    >
-                      <button
-                        aria-haspopup="menu"
-                        aria-expanded={progOpen}
-                        className={
-                          isActive
-                            ? 'inline-flex items-center gap-1 text-lg font-semibold text-pink-600 transition-colors'
-                            : 'inline-flex items-center gap-1 text-lg font-semibold text-gray-600 transition-colors hover:text-pink-500'
-                        }
-                        onFocus={() => setProgOpen(true)}
-                      >
-                        {item}
-                        <ChevronDown className="h-4 w-4" />
-                      </button>
-                      {progOpen && (
-                        <div
-                          className="absolute left-0 top-full z-50 mt-2 w-56 overflow-hidden rounded-xl border border-gray-200 bg-white py-2 shadow-lg"
-                          role="menu"
-                          onMouseEnter={cancelClose}
-                          onMouseLeave={scheduleClose}
-                        >
-                          {programItems.map(pi => {
-                            const isActivePi =
-                              pi.href === '/programs'
-                                ? pathname === '/programs'
-                                : pathname.startsWith(pi.href);
-                            return (
-                              <a
-                                key={pi.href}
-                                href={pi.href}
-                                className={
-                                  isActivePi
-                                    ? 'block bg-pink-50 px-4 py-2 text-sm font-medium text-pink-600 transition-colors'
-                                    : 'block px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-pink-50 hover:text-pink-600'
-                                }
-                                role="menuitem"
-                              >
-                                {pi.label}
-                              </a>
-                            );
-                          })}
-                        </div>
-                      )}
-                    </div>
-                  );
-                }
                 return (
                   <a
                     key={item}
@@ -226,51 +133,6 @@ export function Navbar() {
                     const href = hrefFor(item);
                     const isActive =
                       pathname === href || (href !== '/' && pathname.startsWith(href));
-                    if (item === 'Programs') {
-                      return (
-                        <div key={item} className="w-full">
-                          <button
-                            type="button"
-                            className={
-                              isActive
-                                ? 'flex w-full items-center justify-between rounded-xl bg-pink-50 px-4 py-3 text-left text-base font-medium text-pink-600 transition'
-                                : 'flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-medium text-slate-800 transition hover:bg-pink-50 hover:text-pink-600'
-                            }
-                            aria-expanded={progMobileOpen}
-                            onClick={() => setProgMobileOpen(v => !v)}
-                          >
-                            <span>{item}</span>
-                            <ChevronDown
-                              className={`h-4 w-4 transition-transform ${progMobileOpen ? 'rotate-180' : ''}`}
-                            />
-                          </button>
-                          {progMobileOpen && (
-                            <div className="mt-1 space-y-1 pl-2">
-                              {programItems.map(pi => {
-                                const isActivePi =
-                                  pi.href === '/programs'
-                                    ? pathname === '/programs'
-                                    : pathname.startsWith(pi.href);
-                                return (
-                                  <a
-                                    key={pi.href}
-                                    href={pi.href}
-                                    className={
-                                      isActivePi
-                                        ? 'block w-full rounded-lg bg-pink-50 px-4 py-2 text-left text-sm font-medium text-pink-600 transition'
-                                        : 'block w-full rounded-lg px-4 py-2 text-left text-sm font-medium text-slate-800 transition hover:bg-pink-50 hover:text-pink-600'
-                                    }
-                                    onClick={() => setOpen(false)}
-                                  >
-                                    {pi.label}
-                                  </a>
-                                );
-                              })}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    }
                     return (
                       <a
                         key={item}

@@ -28,6 +28,7 @@ export default function Home() {
       <SupportedBy />
       <VideoSection />
       <MomentsIn60Section />
+      <section className="h-20" />
       <GlobalProgramImpact />
       <ParticipantDistribution />
       <FurtherInformationSection />
@@ -38,7 +39,7 @@ export default function Home() {
       <Recognition />
       <GetInTouchSection />
       <section className="h-20" />
-      {/* <FAQ /> */}
+      <FAQ />
     </main>
   );
 }
