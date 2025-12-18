@@ -1,6 +1,5 @@
 import { CheckCircle2, CreditCard, Mail, Users, CalendarDays, Flag, Star } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
-import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 interface Step {
   id: number;
@@ -121,8 +120,8 @@ function StepIcon({ type }: { type: Step['icon'] }) {
 
 export default function ProgramSteps() {
   return (
-    <section className={jysSectionTheme.programsSteps.sectionWrapper}>
-      <div className={jysSectionTheme.programsSteps.container}>
+    <section className="relative w-full bg-gradient-to-b from-white to-pink-50/50 py-10 sm:py-14 lg:py-16">
+      <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
         <SectionHeader
           eyebrow="Program Journey"
           title="What steps will you go through in this program?"
@@ -130,30 +129,34 @@ export default function ProgramSteps() {
         />
 
         {/* Timeline wrapper */}
-        <div className={jysSectionTheme.programsSteps.timelineGrid}>
+        <div className="mt-8 grid grid-cols-[auto,1fr] gap-x-5 sm:gap-x-7">
           {/* Vertical line */}
-          <div className={jysSectionTheme.programsSteps.lineCol}>
-            <div className={jysSectionTheme.programsSteps.line} />
+          <div className="relative col-span-1 row-span-full">
+            <div className="mx-auto h-full w-px bg-gradient-to-b from-pink-400 via-pink-300 to-transparent" />
           </div>
 
-          <div className={jysSectionTheme.programsSteps.stepsCol}>
+          <div className="space-y-6">
             {STEPS.map(step => (
-              <div key={step.id} className={jysSectionTheme.programsSteps.stepRow}>
+              <div key={step.id} className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-1">
                 {/* Dot + icon */}
-                <div className={jysSectionTheme.programsSteps.stepIconCol}>
-                  <div className={jysSectionTheme.programsSteps.stepIconCircle}>
+                <div className="relative col-span-1 flex flex-col items-center">
+                  <div className="grid h-9 w-9 place-items-center rounded-full bg-pink-600 text-white shadow-[0_10px_25px_rgba(219,39,119,0.6)]">
                     <StepIcon type={step.icon} />
                   </div>
-                  <span className={jysSectionTheme.programsSteps.stepLabel}>Step {step.id}</span>
+                  <span className="mt-1 text-[11px] font-semibold uppercase tracking-wide text-pink-600">
+                    Step {step.id}
+                  </span>
                 </div>
 
                 {/* Content */}
-                <div className={jysSectionTheme.programsSteps.stepCard}>
-                  <h3 className={jysSectionTheme.programsSteps.stepTitle}>{step.title}</h3>
-                  <ul className={jysSectionTheme.programsSteps.stepList}>
+                <div className="col-span-1 rounded-2xl bg-white/95 px-4 py-4 shadow-[0_10px_30px_rgba(15,23,42,0.12)] ring-1 ring-slate-200/70 sm:px-5 sm:py-5">
+                  <h3 className="text-sm font-extrabold text-blue-950 sm:text-base">
+                    {step.title}
+                  </h3>
+                  <ul className="mt-2 space-y-1.5 text-xs text-slate-700 sm:text-sm">
                     {step.lines.map(line => (
-                      <li key={line} className={jysSectionTheme.programsSteps.stepListItem}>
-                        <span className={jysSectionTheme.programsSteps.stepListBulletIcon}>
+                      <li key={line} className="flex gap-2">
+                        <span className="mt-1 hidden text-emerald-500 sm:inline">
                           <CheckCircle2 className="h-3.5 w-3.5" />
                         </span>
                         <span>{line}</span>
