@@ -121,20 +121,19 @@ export default function FAQ() {
                       setActiveTab(index);
                       setOpenIdx(0);
                     }}
-                    className={`relative flex items-center justify-between px-5 py-4 text-left text-sm font-semibold transition-colors sm:px-6 sm:text-base ${
+                    className={`relative flex items-center gap-3 px-5 py-4 text-left text-sm font-semibold transition-colors sm:px-6 sm:text-base ${
                       isActive
                         ? 'bg-white text-blue-950'
                         : 'bg-white text-slate-500 hover:bg-pink-50 hover:text-blue-950'
                     }`}
                     aria-current={isActive}
                   >
-                    <span>{group.label}</span>
                     {isActive ? (
-                      <span
-                        className="ml-3 h-9 w-0.5 rounded-full bg-pink-600"
-                        aria-hidden="true"
-                      />
-                    ) : null}
+                      <span className="h-9 w-0.5 rounded-full bg-pink-600" aria-hidden="true" />
+                    ) : (
+                      <span className="h-9 w-0.5" aria-hidden="true" />
+                    )}
+                    <span>{group.label}</span>
                   </button>
                 );
               })}

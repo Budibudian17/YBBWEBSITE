@@ -505,7 +505,7 @@ export const jysSectionTheme = {
       'relative px-4 py-5 text-center text-base font-extrabold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 sm:px-6 sm:text-lg',
     tabInactive:
       'text-blue-900/70 hover:bg-pink-50 hover:text-blue-950 hover:shadow-sm hover:ring-1 hover:ring-pink-200',
-    tabActiveUnderline: 'absolute inset-x-0 bottom-0 block h-0.5 bg-pink-600',
+    tabActiveUnderline: 'absolute inset-y-3 left-0 block w-0.5 rounded-full bg-pink-600',
     tabLabelIcon: 'h-4 w-4 text-pink-600',
   },
   furtherInfoPrograms: {

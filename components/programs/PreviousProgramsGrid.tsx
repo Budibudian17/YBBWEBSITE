@@ -6,19 +6,19 @@ const PREVIOUS_ITEMS = [
   {
     title: 'Japan Youth Summit 2025',
     dates: 'August 10 – August 13, 2025',
-    cover: '/img/coverjysbrosur.png',
+    cover: '/img/bannerjys.png',
     href: '#',
   },
   {
     title: 'Japan Youth Summit 2024',
     dates: 'August 12 – August 15, 2024',
-    cover: '/img/coverjysbrosur.png',
+    cover: '/img/bannerjys.png',
     href: '#',
   },
   {
     title: 'Japan Youth Summit 2023',
     dates: 'August 08 – August 11, 2023',
-    cover: '/img/coverjysbrosur.png',
+    cover: '/img/bannerjys.png',
     href: '#',
   },
 ];

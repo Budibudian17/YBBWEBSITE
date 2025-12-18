@@ -10,7 +10,7 @@ export default function AboutProgram() {
 
   const imageMain = '/img/jysprogram.png';
   const imageSecondary = '/img/jysprogram1.jpg';
-  const imageThird = '/img/coverjysbrosur.png';
+  const imageThird = '/img/programoverview.png';
 
   return (
     <section className={jysSectionTheme.aboutProgram.sectionWrapper}>
