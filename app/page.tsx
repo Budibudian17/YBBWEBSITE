@@ -38,8 +38,7 @@ export default function Home() {
       <RecognitionAwards />
       <Recognition />
       <GetInTouchSection />
-      <section className="h-20" />
-      <FAQ />
+      {/* <FAQ /> */}
     </main>
   );
 }
