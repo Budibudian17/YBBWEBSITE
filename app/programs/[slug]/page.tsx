@@ -5,6 +5,7 @@ import FeaturedSpeakers from '@/components/programs/FeaturedSpeakers';
 import ProgramRundowns from '@/components/programs/ProgramRundowns';
 import ProgramFAQ from '@/components/programs/ProgramFAQ';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 function getProgramMeta(slug: string): {
   yearText: string;
@@ -76,16 +77,11 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
 
           <div className="mt-6">
             {ctaHref ? (
-              <a
-                href={ctaHref}
-                className="inline-flex items-center justify-center rounded-lg bg-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700"
-              >
+              <a href={ctaHref} className={jysSectionTheme.programDetail.heroCta}>
                 {ctaLabel}
               </a>
             ) : (
-              <span className="inline-flex items-center justify-center rounded-lg border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white/80">
-                {ctaLabel}
-              </span>
+              <span className={jysSectionTheme.programDetail.heroCtaClosed}>{ctaLabel}</span>
             )}
           </div>
         </div>
@@ -102,48 +98,40 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
         <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
           <ul className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             <li className="flex items-start gap-6 lg:border-r lg:border-blue-800/60 lg:px-6">
-              <div className="flex aspect-square h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-pink-500/80 bg-white/5">
+              <div className={jysSectionTheme.programDetail.infoStripIconCircle}>
                 <CalendarDays className="h-5 w-5 text-pink-400" />
               </div>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-pink-400">
-                  Program Date
-                </p>
+                <p className={jysSectionTheme.programDetail.infoStripSubtitle}>Program Date</p>
                 <h3 className="mt-1 text-2xl font-extrabold leading-tight">
                   March 12 - March 15, 2026
                 </h3>
               </div>
             </li>
             <li className="flex items-start gap-6 lg:border-r lg:border-blue-800/60 lg:px-6">
-              <div className="flex aspect-square h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-pink-500/80 bg-white/5">
+              <div className={jysSectionTheme.programDetail.infoStripIconCircle}>
                 <MapPin className="h-5 w-5 text-pink-400" />
               </div>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-pink-400">
-                  Location
-                </p>
+                <p className={jysSectionTheme.programDetail.infoStripSubtitle}>Location</p>
                 <h3 className="mt-1 text-2xl font-extrabold leading-tight">Osaka, Japan</h3>
               </div>
             </li>
             <li className="flex items-start gap-6 lg:border-r lg:border-blue-800/60 lg:px-6">
-              <div className="flex aspect-square h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-pink-500/80 bg-white/5">
+              <div className={jysSectionTheme.programDetail.infoStripIconCircle}>
                 <Clock className="h-5 w-5 text-pink-400" />
               </div>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-pink-400">
-                  Duration
-                </p>
+                <p className={jysSectionTheme.programDetail.infoStripSubtitle}>Duration</p>
                 <h3 className="mt-1 text-2xl font-extrabold leading-tight">4 Days</h3>
               </div>
             </li>
             <li className="flex items-start gap-6 lg:border-r lg:border-blue-800/60 lg:px-6">
-              <div className="flex aspect-square h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-pink-500/80 bg-white/5">
+              <div className={jysSectionTheme.programDetail.infoStripIconCircle}>
                 <Users className="h-5 w-5 text-pink-400" />
               </div>
               <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-pink-400">
-                  Capacity
-                </p>
+                <p className={jysSectionTheme.programDetail.infoStripSubtitle}>Capacity</p>
                 <h3 className="mt-1 text-2xl font-extrabold leading-tight">200 Slots</h3>
               </div>
             </li>
@@ -156,8 +144,8 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
           <SectionHeader eyebrow="Guidelines" title="Registration Guidelines" />
           <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl bg-[url('/img/bgourprogram.png')] bg-cover bg-center bg-blend-multiply ring-1 ring-gray-200">
             <div className="p-6 text-center sm:p-8">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border-2 border-pink-500/80 bg-pink-50">
-                <FileText className="h-5 w-5 text-pink-600" />
+              <div className={jysSectionTheme.programDetail.guidelinesIconCircle}>
+                <FileText className={jysSectionTheme.programDetail.guidelinesIcon} />
               </div>
               <p className="text-base leading-7 text-gray-600">
                 Download our comprehensive registration guide to understand the application process,
@@ -168,7 +156,7 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
                   href="https://drive.google.com/drive/folders/12b2NpJJFpWv5I_HrOHW0Vjiz8xckt5Wt?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700"
+                  className={jysSectionTheme.programDetail.guidelinesButton}
                 >
                   <Download className="h-4 w-4" />
                   Download Guidelines
@@ -186,8 +174,8 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
             {/* Overview card */}
             <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-gray-200">
               <div className="flex items-start gap-4 p-6 sm:p-8">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-pink-500/80 bg-pink-50">
-                  <Info className="h-5 w-5 text-pink-600" />
+                <div className={jysSectionTheme.programDetail.overviewIconCircle}>
+                  <Info className={jysSectionTheme.programDetail.overviewIcon} />
                 </div>
                 <div className="text-gray-700">
                   <p className="leading-7">
@@ -197,7 +185,7 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
                   </p>
                   <ul className="mt-4 space-y-3">
                     <li className="flex items-start gap-3">
-                      <span className="inline-flex aspect-square h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pink-600 text-white">
+                      <span className={jysSectionTheme.programDetail.overviewBulletIcon}>
                         <Check className="h-4 w-4" />
                       </span>
                       <span className="leading-7">
@@ -255,12 +243,12 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
                   {ctaHref ? (
                     <a
                       href={ctaHref}
-                      className="inline-flex items-center justify-center rounded-lg bg-pink-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700"
+                      className={jysSectionTheme.programDetail.applicationPrimaryCta}
                     >
                       {ctaLabel}
                     </a>
                   ) : (
-                    <span className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-gray-50 px-5 py-2.5 text-sm font-semibold text-gray-500">
+                    <span className={jysSectionTheme.programDetail.applicationSecondaryCta}>
                       {ctaLabel}
                     </span>
                   )}

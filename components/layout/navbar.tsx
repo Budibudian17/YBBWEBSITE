@@ -87,7 +87,7 @@ export function Navbar() {
 
       {/* Navbar utama */}
       <nav
-        className={`sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 ${scrolled ? 'shadow-sm' : ''}`}
+        className={`${'sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60'} ${scrolled ? 'shadow-sm' : ''}`}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between md:h-24">
@@ -129,9 +129,11 @@ export function Navbar() {
                       <button
                         aria-haspopup="menu"
                         aria-expanded={progOpen}
-                        className={`inline-flex items-center gap-1 text-lg font-semibold transition-colors ${
-                          isActive ? 'text-pink-600' : 'text-gray-600 hover:text-pink-500'
-                        }`}
+                        className={
+                          isActive
+                            ? 'inline-flex items-center gap-1 text-lg font-semibold text-pink-600 transition-colors'
+                            : 'inline-flex items-center gap-1 text-lg font-semibold text-gray-600 transition-colors hover:text-pink-500'
+                        }
                         onFocus={() => setProgOpen(true)}
                       >
                         {item}
@@ -153,11 +155,11 @@ export function Navbar() {
                               <a
                                 key={pi.href}
                                 href={pi.href}
-                                className={`block px-4 py-2 text-sm font-medium transition-colors ${
+                                className={
                                   isActivePi
-                                    ? 'bg-pink-50 text-pink-600'
-                                    : 'text-gray-700 hover:bg-pink-50 hover:text-pink-600'
-                                }`}
+                                    ? 'block bg-pink-50 px-4 py-2 text-sm font-medium text-pink-600 transition-colors'
+                                    : 'block px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-pink-50 hover:text-pink-600'
+                                }
                                 role="menuitem"
                               >
                                 {pi.label}
@@ -174,9 +176,11 @@ export function Navbar() {
                     key={item}
                     href={href}
                     aria-current={isActive ? 'page' : undefined}
-                    className={`text-lg font-semibold transition-colors ${
-                      isActive ? 'text-pink-600' : 'text-gray-600 hover:text-pink-500'
-                    }`}
+                    className={
+                      isActive
+                        ? 'text-lg font-semibold text-pink-600 transition-colors'
+                        : 'text-lg font-semibold text-gray-600 transition-colors hover:text-pink-500'
+                    }
                   >
                     {item}
                   </a>
@@ -227,11 +231,11 @@ export function Navbar() {
                         <div key={item} className="w-full">
                           <button
                             type="button"
-                            className={`flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-medium transition ${
+                            className={
                               isActive
-                                ? 'bg-pink-50 text-pink-600'
-                                : 'text-slate-800 hover:bg-pink-50 hover:text-pink-600'
-                            }`}
+                                ? 'flex w-full items-center justify-between rounded-xl bg-pink-50 px-4 py-3 text-left text-base font-medium text-pink-600 transition'
+                                : 'flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-medium text-slate-800 transition hover:bg-pink-50 hover:text-pink-600'
+                            }
                             aria-expanded={progMobileOpen}
                             onClick={() => setProgMobileOpen(v => !v)}
                           >
@@ -251,11 +255,11 @@ export function Navbar() {
                                   <a
                                     key={pi.href}
                                     href={pi.href}
-                                    className={`block w-full rounded-lg px-4 py-2 text-left text-sm font-medium transition ${
+                                    className={
                                       isActivePi
-                                        ? 'bg-pink-50 text-pink-600'
-                                        : 'text-slate-800 hover:bg-pink-50 hover:text-pink-600'
-                                    }`}
+                                        ? 'block w-full rounded-lg bg-pink-50 px-4 py-2 text-left text-sm font-medium text-pink-600 transition'
+                                        : 'block w-full rounded-lg px-4 py-2 text-left text-sm font-medium text-slate-800 transition hover:bg-pink-50 hover:text-pink-600'
+                                    }
                                     onClick={() => setOpen(false)}
                                   >
                                     {pi.label}
@@ -272,11 +276,11 @@ export function Navbar() {
                         key={item}
                         href={href}
                         aria-current={isActive ? 'page' : undefined}
-                        className={`block w-full rounded-xl px-4 py-3 text-left text-base font-medium transition ${
+                        className={
                           isActive
-                            ? 'bg-pink-50 text-pink-600'
-                            : 'text-slate-800 hover:bg-pink-50 hover:text-pink-600'
-                        }`}
+                            ? 'block w-full rounded-xl bg-pink-50 px-4 py-3 text-left text-base font-medium text-pink-600 transition'
+                            : 'block w-full rounded-xl px-4 py-3 text-left text-base font-medium text-slate-800 transition hover:bg-pink-50 hover:text-pink-600'
+                        }
                         onClick={() => setOpen(false)}
                       >
                         {item}

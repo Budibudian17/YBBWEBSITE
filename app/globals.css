@@ -14,6 +14,25 @@
   font-display: swap;
 }
 
+/* Theme tokens (JYS default). Other programs can override via [data-program="..."] on body */
+:root {
+  --color-background: #ffffff;
+  --color-foreground: #020617;
+  --color-primary: #1c57b3;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #db2777;
+  --color-accent-foreground: #ffffff;
+}
+
+body[data-program='jys'] {
+  --color-background: #ffffff;
+  --color-foreground: #020617;
+  --color-primary: #1c57b3;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #db2777;
+  --color-accent-foreground: #ffffff;
+}
+
 body {
   margin: 0;
   padding: 0;

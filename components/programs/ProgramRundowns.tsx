@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { CalendarDays, Clock, Info } from 'lucide-react';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 export type RundownItem = {
   dateLabel: string; // e.g. Oct 12, 2025
@@ -39,17 +40,17 @@ export default function ProgramRundowns({
                 key={d.label}
                 type="button"
                 onClick={() => setActive(i)}
-                className={`relative px-4 py-5 text-center text-base font-extrabold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 sm:px-6 sm:text-lg ${
+                className={`${jysSectionTheme.programRundowns.tabButton} ${
                   i === active ? 'text-blue-950' : 'text-blue-900/60 hover:bg-blue-50'
                 }`}
                 aria-current={i === active}
               >
                 <span className="inline-flex items-center justify-center gap-2">
-                  <CalendarDays className="h-4 w-4 text-pink-600" />
+                  <CalendarDays className={jysSectionTheme.programRundowns.tabLabelIcon} />
                   <span>{d.label}</span>
                 </span>
                 {i === active ? (
-                  <span className="absolute inset-x-0 bottom-0 block h-0.5 bg-pink-600" />
+                  <span className={jysSectionTheme.programRundowns.tabActiveUnderline} />
                 ) : (
                   <span className="absolute inset-y-3 right-0 hidden w-px bg-blue-100 last:hidden sm:block" />
                 )}
@@ -104,7 +105,7 @@ export default function ProgramRundowns({
         {/* catatan di bawah tab */}
         {note ? (
           <div className="mt-4 flex items-start gap-3 rounded-xl bg-blue-50 p-4 ring-1 ring-blue-200">
-            <Info className="mt-0.5 h-5 w-5 flex-shrink-0 text-pink-600" />
+            <Info className={jysSectionTheme.programRundowns.noteIcon} />
             <p className="text-sm leading-6 text-blue-900">{note}</p>
           </div>
         ) : null}

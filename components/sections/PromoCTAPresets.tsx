@@ -17,7 +17,7 @@ export function getCTAPreset(pathname: string | null | undefined) {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="/login"
-              className="rounded-md bg-pink-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-md px-5 py-3 text-sm font-semibold shadow-sm transition"
             >
               Register Now
             </a>
@@ -34,7 +34,7 @@ export function getCTAPreset(pathname: string | null | undefined) {
   }
   if (p.startsWith('/insights')) {
     return (
-      <section className="relative w-full overflow-hidden bg-gradient-to-r from-pink-600 to-fuchsia-600 py-12 text-white sm:py-16 lg:py-20">
+      <section className="from-accent relative w-full overflow-hidden bg-gradient-to-r to-fuchsia-600 py-12 text-white sm:py-16 lg:py-20">
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
             Get the latest insights
@@ -45,7 +45,7 @@ export function getCTAPreset(pathname: string | null | undefined) {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="/insights"
-              className="rounded-md bg-white px-5 py-3 text-sm font-semibold text-pink-600 shadow-sm transition hover:bg-pink-50"
+              className="text-accent hover:bg-accent/5 rounded-md bg-white px-5 py-3 text-sm font-semibold shadow-sm transition"
             >
               Browse Insights
             </a>

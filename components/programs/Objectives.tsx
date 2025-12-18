@@ -1,4 +1,5 @@
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 export default function Objectives() {
   const items: { n: string; title: string; desc: string }[] = [
     {
@@ -40,9 +41,7 @@ export default function Objectives() {
               }`}
             >
               <div className="flex items-start gap-3">
-                <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-pink-600 text-white">
-                  {obj.n}
-                </span>
+                <span className={jysSectionTheme.programsObjectives.numberCircle}>{obj.n}</span>
                 <div>
                   <h3 className="text-lg font-extrabold text-blue-900">{obj.title}</h3>
                   <p className="mt-1 text-sm leading-6 text-slate-700">{obj.desc}</p>

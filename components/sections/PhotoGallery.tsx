@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -34,7 +34,7 @@ export default function PhotoGallery({ mode = 'page' }: { mode?: 'home' | 'page'
   ];
 
   return (
-    <section className="relative w-full bg-[#eef5ff] py-12 sm:py-16 lg:py-20">
+    <section className="relative w-full py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeader title="Photo Gallery" />
         <p className="-mt-6 mb-8 text-center text-sm text-pink-600">
@@ -50,7 +50,7 @@ export default function PhotoGallery({ mode = 'page' }: { mode?: 'home' | 'page'
               <button
                 type="button"
                 onClick={() => setSelected(idx)}
-                className="block aspect-[16/10] w-full overflow-hidden cursor-zoom-in"
+                className="block aspect-[16/10] w-full cursor-zoom-in overflow-hidden"
                 aria-label="Open photo"
               >
                 <span className="relative block h-full w-full">
@@ -76,7 +76,7 @@ export default function PhotoGallery({ mode = 'page' }: { mode?: 'home' | 'page'
           >
             <div
               className="relative max-h-[90vh] w-full max-w-5xl"
-              onClick={(e) => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
             >
               <button
                 type="button"

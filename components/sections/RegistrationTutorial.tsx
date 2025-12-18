@@ -51,10 +51,10 @@ export default function RegistrationTutorial() {
   ];
 
   return (
-    <section className="relative w-full bg-[#ffffff] py-16 sm:py-20">
+    <section className="relative w-full bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeader title="Experience Our Program in Action" />
-        <p className="-mt-6 mb-8 text-center text-sm text-pink-600">
+        <p className="text-accent -mt-6 mb-8 text-center text-sm">
           Dive into amazing stories, epic moments, and the global community that’s ready to welcome
           you!
         </p>
@@ -76,7 +76,7 @@ export default function RegistrationTutorial() {
 
               {/* Badge pojok kiri */}
               <div className="absolute left-4 top-4">
-                <span className="inline-flex items-center rounded-full bg-pink-600/90 px-3 py-1 text-xs font-semibold text-white shadow">
+                <span className="bg-accent/90 text-accent-foreground inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold shadow">
                   Video Tutorial
                 </span>
               </div>
@@ -89,7 +89,7 @@ export default function RegistrationTutorial() {
                   className="absolute inset-0 z-10 grid place-items-center bg-black/0 hover:bg-black/10"
                   aria-label="Open video in modal"
                 >
-                  <span className="inline-grid h-14 w-14 place-items-center rounded-full bg-white/90 text-pink-600 shadow">
+                  <span className="text-accent inline-grid h-14 w-14 place-items-center rounded-full bg-white/90 shadow">
                     <Play className="h-6 w-6" />
                   </span>
                 </button>
@@ -106,7 +106,7 @@ export default function RegistrationTutorial() {
               <ol className="mt-4 space-y-3">
                 {steps.map((s, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-pink-600 text-xs font-bold text-white">
+                    <span className="bg-accent text-accent-foreground mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold">
                       {i + 1}
                     </span>
                     <span className="text-sm leading-6 text-slate-700">{s}</span>
@@ -117,7 +117,7 @@ export default function RegistrationTutorial() {
             <div className="mt-6">
               <a
                 href="#register"
-                className="inline-flex items-center justify-center rounded-md bg-pink-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 focus:ring-accent inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-2"
               >
                 Register Now
               </a>

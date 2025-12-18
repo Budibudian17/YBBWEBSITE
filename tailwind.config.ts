@@ -9,8 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        background: 'var(--color-background)',
+        foreground: 'var(--color-foreground)',
+        primary: 'var(--color-primary)',
+        'primary-foreground': 'var(--color-primary-foreground)',
+        accent: 'var(--color-accent)',
+        'accent-foreground': 'var(--color-accent-foreground)',
       },
       keyframes: {
         heartbeat: {
@@ -36,4 +40,3 @@ const config: Config = {
 };
 
 export default config;
-

@@ -1,5 +1,6 @@
 import SectionHeader from '@/components/ui/SectionHeader';
 import { HeartPulse, GraduationCap, Briefcase, Leaf, Scale } from 'lucide-react';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 export default function ProgramThemeSection() {
   const items = [
@@ -45,23 +46,14 @@ export default function ProgramThemeSection() {
         <SectionHeader eyebrow="Program Theme" title="Subthemes we focus on" />
         <div className="grid gap-6 lg:grid-cols-2">
           {items.map(t => (
-            <div
-              key={t.title}
-              className="relative overflow-hidden rounded-xl border border-pink-200/60 bg-gradient-to-br from-pink-50 to-white p-5 shadow-[0_8px_30px_rgba(2,6,23,0.06)]"
-            >
-              <span aria-hidden className="absolute left-0 top-0 h-full w-1 bg-pink-500/60" />
+            <div key={t.title} className={jysSectionTheme.insightsTheme.card}>
+              <span aria-hidden className={jysSectionTheme.insightsTheme.leftAccent} />
               <div className="mb-2 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center rounded-full bg-pink-50 px-2 py-1 text-[11px] font-semibold uppercase tracking-wide text-pink-600 ring-1 ring-pink-200">
-                    {t.tag}
-                  </span>
-                  <span className="grid h-8 w-8 place-items-center rounded-full bg-white text-pink-600 ring-1 ring-pink-200">
-                    {t.icon}
-                  </span>
+                  <span className={jysSectionTheme.insightsTheme.tagChip}>{t.tag}</span>
+                  <span className={jysSectionTheme.insightsTheme.iconCircle}>{t.icon}</span>
                 </div>
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-pink-600 text-xs font-bold text-white">
-                  {t.sdg}
-                </span>
+                <span className={jysSectionTheme.insightsTheme.sdgCircle}>{t.sdg}</span>
               </div>
               <h3 className="text-base font-extrabold text-blue-900 sm:text-lg">{t.title}</h3>
               <p className="mt-1 text-sm leading-6 text-slate-700">{t.desc}</p>

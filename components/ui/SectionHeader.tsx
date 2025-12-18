@@ -12,7 +12,7 @@ export default function SectionHeader({
   return (
     <div className={`mb-8 ${alignCls}`}>
       {eyebrow ? (
-        <p className="text-xs font-semibold uppercase tracking-wider text-pink-500">{eyebrow}</p>
+        <p className="text-accent text-xs font-semibold uppercase tracking-wider">{eyebrow}</p>
       ) : null}
       <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-blue-950 sm:text-4xl">
         {title}

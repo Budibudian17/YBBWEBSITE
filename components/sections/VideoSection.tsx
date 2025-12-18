@@ -1,116 +1,173 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
-import { Volume2, VolumeX, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
+
+type VideoItem = {
+  id: string;
+  title: string;
+  embedUrl: string;
+  duration: string;
+};
+
+type YearKey = '2025' | '2024';
+
+const videosByYear: Record<YearKey, VideoItem[]> = {
+  '2025': [
+    {
+      id: 'jys-2025-1',
+      title:
+        'OFFICIAL AFTER MOVIE OF JAPAN YOUTH SUMMIT 2025 - OSAKA by Youth Break the Boundaries',
+      embedUrl: 'https://www.youtube.com/embed/4kXjhC9NbaA?rel=0',
+      duration: 'JYS 2025 • Highlight video',
+    },
+    {
+      id: 'jys-2025-2',
+      title:
+        'OFFICIAL WELCOMING VIDEO OF JAPAN YOUTH SUMMIT 2025 - OSAKA by Youth Break the Boundaries',
+      embedUrl: 'https://www.youtube.com/embed/Vc_0-stmHNQ?rel=0',
+      duration: 'JYS 2025 • Cultural experience',
+    },
+    {
+      id: 'jys-2025-3',
+      title: 'Japan Youth Summit 2025 — Day 1 & Day 2 Recap | Osaka, Japan',
+      embedUrl: 'https://www.youtube.com/embed/lmXJuz26lQI?rel=0',
+      duration: 'JYS 2025 • Collaboration & sessions',
+    },
+    {
+      id: 'jys-2025-4',
+      title: 'Welcoming Attendees of 28 Countries for Japan Youth Summit 2025!',
+      embedUrl: 'https://www.youtube.com/embed/cjAa7zojwcs?rel=0',
+      duration: 'JYS 2025 • Journey & stories',
+    },
+  ],
+  // TODO: Ganti isi 2024 dengan video JYS 2024 asli saat sudah siap
+  '2024': [
+    {
+      id: 'jys-2024-1',
+      title: 'Japan Youth Summit 2024 - After Movie',
+      embedUrl: 'https://www.youtube.com/embed/cXjitjeimBc?rel=0',
+      duration: 'JYS 2024 • Highlight video',
+    },
+    {
+      id: 'jys-2024-2',
+      title: 'JAPAN YOUTH SUMMIT 2024 - RECAP VIDEO',
+      embedUrl: 'https://www.youtube.com/embed/eYGhT1LGubc?rel=0',
+      duration: 'JYS 2024 • Cultural experience',
+    },
+    {
+      id: 'jys-2024-3',
+      title: 'JAPAN YOUTH SUMMIT 2024 - OPENING VIDEO',
+      embedUrl: 'https://www.youtube.com/embed/W0rjb6SGL10?rel=0',
+      duration: 'JYS 2024 • Collaboration & sessions',
+    },
+    {
+      id: 'jys-2024-4',
+      title: 'JAPAN YOUTH SUMMIT 2024 - DAY 3',
+      embedUrl: 'https://www.youtube.com/embed/sl95b7dUQYM?rel=0',
+      duration: 'JYS 2024 • Journey & stories',
+    },
+  ],
+};
 
 export default function VideoSection() {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [muted, setMuted] = useState(true);
+  const [year, setYear] = useState<YearKey>('2025');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
+  const currentVideos = videosByYear[year];
+  const currentVideo = currentVideos[currentIndex];
 
-  const videos = [
-    { label: 'JYS Program 2025', src: '/video/osaka2025_web.mp4' },
-    { label: 'JYS Program 2024', src: '/video/osaka2024_web.mp4' },
-  ];
-
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    // biar auto-play pas komponen muncul (kalau muted biasanya auto-play aman)
-    v.muted = muted;
-    v.play().catch(() => {});
-  }, [muted]);
-
-  const toggleMute = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = !v.muted;
-    setMuted(v.muted);
-    if (v.paused) v.play().catch(() => {});
+  const truncateTitle = (title: string, maxWords = 8) => {
+    const words = title.split(' ');
+    if (words.length <= maxWords) return title;
+    return `${words.slice(0, maxWords).join(' ')}...`;
   };
-
-  const goTo = (idx: number) => {
-    setAnimating(true);
-    // jedain dulu videonya yang lagi jalan; nanti src-nya keganti via state di bawah
-    const el = videoRef.current;
-    if (el) {
-      el.pause();
-      el.muted = muted;
-    }
-    // ganti src-nya sekarang; auto-play pas loadeddata biar ga muncul cover/poster
-    setCurrentIndex((idx + videos.length) % videos.length);
-  };
-
-  const next = () => goTo(currentIndex + 1);
-  const prev = () => goTo(currentIndex - 1);
 
   return (
-    <section className="relative w-full bg-[url('/img/bgvideojys2025.png')] bg-cover bg-center bg-no-repeat">
-      <div className="relative mx-auto max-w-7xl px-0 py-12 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-2xl shadow-[0_20px_60px_rgba(2,6,23,0.25)] ring-1 ring-slate-900/20">
-          <video
-            ref={videoRef}
-            className={`block h-[46vh] w-full object-cover transition duration-500 ease-out md:h-[56vh] lg:h-[64vh] ${animating ? 'scale-95' : 'scale-100'}`}
-            playsInline
-            autoPlay
-            muted={muted}
-            loop
-            preload="auto"
-            onLoadedData={() => {
-              const v = videoRef.current;
-              if (!v) return;
-              v.currentTime = 0;
-              v.play().catch(() => {});
-              setAnimating(false);
-            }}
-            src={videos[currentIndex].src}
-          />
+    <section className={jysSectionTheme.videoSection.sectionWrapper}>
+      <div className={jysSectionTheme.videoSection.card}>
+        <SectionHeader
+          eyebrow="Program Highlights Video"
+          title="Experience Our Program in Action"
+        />
+        <p className={jysSectionTheme.videoSection.subtitle}>
+          Watch the journey of Japan Youth Summit delegates – from keynote sessions and cultural
+          experiences to collaboration and real impact projects in Japan.
+        </p>
 
-          <div className="absolute left-4 top-4">
-            <span className="inline-flex items-center rounded-full bg-pink-600/90 px-3 py-1 text-xs font-semibold text-white shadow">
-              {videos[currentIndex].label}
-            </span>
-          </div>
-
-          <button
-            type="button"
-            onClick={toggleMute}
-            className="group absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 text-sm font-medium text-slate-800 shadow-md backdrop-blur transition hover:bg-white"
-            aria-label={muted ? 'Unmute video' : 'Mute video'}
-          >
-            {muted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
-            <span className="hidden sm:inline">{muted ? 'Sound off' : 'Sound on'}</span>
-          </button>
-
-          <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2">
-            <button
-              type="button"
-              onClick={prev}
-              className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-white/90 p-2 text-slate-800 shadow hover:bg-white"
-              aria-label="Previous video"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              type="button"
-              onClick={next}
-              className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-white/90 p-2 text-slate-800 shadow hover:bg-white"
-              aria-label="Next video"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
-
-          <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
-            {videos.map((v, i) => (
-              <button
-                key={v.src}
-                onClick={() => goTo(i)}
-                aria-label={`Go to ${v.label}`}
-                className={`h-2.5 w-2.5 rounded-full ${i === currentIndex ? 'bg-white' : 'bg-white/50 hover:bg-white/80'} shadow`}
+        <div className={jysSectionTheme.videoSection.inner}>
+          {/* Left: main video */}
+          <div className="space-y-3">
+            <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-slate-900/10">
+              <iframe
+                src={currentVideo.embedUrl}
+                title={currentVideo.title}
+                className={jysSectionTheme.videoSection.mainIframe}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
               />
-            ))}
+            </div>
+            <div className="flex items-center justify-between gap-2">
+              <div>
+                <p className="text-sm font-semibold text-slate-900 sm:text-base">
+                  {truncateTitle(currentVideo.title)}
+                </p>
+                <p className="text-xs text-slate-500">{currentVideo.duration}</p>
+              </div>
+              <span className={jysSectionTheme.videoSection.badge}>JYS Program {year}</span>
+            </div>
+          </div>
+
+          {/* Right: playlist list */}
+          <div>
+            <div className={jysSectionTheme.videoSection.yearTabsWrapper}>
+              {(['2025', '2024'] as YearKey[]).map(y => (
+                <button
+                  key={y}
+                  type="button"
+                  onClick={() => {
+                    setYear(y);
+                    setCurrentIndex(0);
+                  }}
+                  className={`${jysSectionTheme.videoSection.yearTab} ${
+                    year === y ? jysSectionTheme.videoSection.yearTabActive : ''
+                  }`}
+                >
+                  {y}
+                </button>
+              ))}
+            </div>
+
+            <div className={jysSectionTheme.videoSection.listWrapper}>
+              {currentVideos.map((video, index) => {
+                const isActive = index === currentIndex;
+                return (
+                  <button
+                    key={video.id}
+                    type="button"
+                    onClick={() => setCurrentIndex(index)}
+                    className={`${jysSectionTheme.videoSection.listCard} ${
+                      isActive ? jysSectionTheme.videoSection.listCardActive : ''
+                    }`}
+                  >
+                    <div className={jysSectionTheme.videoSection.thumbnailWrapper}>
+                      <iframe
+                        src={`${video.embedUrl}&mute=1`}
+                        title={video.title}
+                        className={jysSectionTheme.videoSection.mainIframe}
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <p className={jysSectionTheme.videoSection.listTitle}>
+                        {truncateTitle(video.title)}
+                      </p>
+                      <p className={jysSectionTheme.videoSection.listMeta}>{video.duration}</p>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

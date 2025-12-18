@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import { CalendarDays, Calendar, MapPin, Square } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 function useCountdown(target: Date) {
   const targetMs = useMemo(() => target.getTime(), [target]);
@@ -48,13 +49,13 @@ export default function CurrentProgram() {
 
               {/* Judul & deskripsi */}
               <div className="mt-6">
-                <div className="inline-flex items-center rounded-full border border-pink-200 bg-pink-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-pink-700">
-                  Registration Open
-                </div>
+                <div className={jysSectionTheme.programsCurrent.statusBadge}>Registration Open</div>
                 <h2 className="mt-3 text-2xl font-extrabold leading-tight text-gray-900 sm:text-3xl">
                   Japan Youth Summit 2026
                 </h2>
-                <p className="mt-1 text-sm font-medium text-pink-700">Collaboration in Diversity</p>
+                <p className={jysSectionTheme.programsCurrent.subtitle}>
+                  Collaboration in Diversity
+                </p>
                 <p className="mt-3 text-sm leading-6 text-gray-600">
                   Dive into our world through this exciting showcase of past programs and inspiring
                   success stories! See firsthand the amazing moments and the vibrant community
@@ -64,23 +65,17 @@ export default function CurrentProgram() {
 
               {/* Tombol aksi (CTA) */}
               <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  href="/apply"
-                  className="inline-flex items-center justify-center rounded-lg bg-pink-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700"
-                >
+                <a href="/apply" className={jysSectionTheme.programsCurrent.primaryCta}>
                   Register Now
                 </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center justify-center rounded-lg border border-pink-200 bg-white px-4 py-2 text-sm font-semibold text-pink-700 shadow-sm transition hover:bg-pink-50"
-                >
+                <a href="#" className={jysSectionTheme.programsCurrent.secondaryCta}>
                   Download Brochure
                 </a>
                 <a
                   href="/programs/jys-2026"
-                  className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm transition hover:bg-blue-100"
+                  className={jysSectionTheme.programsCurrent.tertiaryCta}
                 >
-                  View Details
+                  View Guidelines
                 </a>
               </div>
             </div>

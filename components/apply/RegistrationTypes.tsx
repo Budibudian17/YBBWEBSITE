@@ -1,5 +1,6 @@
 import { MapPin, Calendar, Check, CreditCard } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 // Section: Choose Your Registration Type — dipisah biar rapi
 export default function RegistrationTypesSection() {
@@ -16,11 +17,11 @@ export default function RegistrationTypesSection() {
 
         <div className="grid gap-6 lg:grid-cols-2">
           {/* Fully Funded */}
-          <div className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] hover:ring-pink-200">
+          <div className={jysSectionTheme.applyRegistrationTypes.card}>
             <div className="border-b border-slate-200 bg-gradient-to-b from-blue-50/70 to-transparent p-5">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-full bg-pink-600 text-white">
+                  <span className={jysSectionTheme.applyRegistrationTypes.iconCircle}>
                     <MapPin className="h-5 w-5" />
                   </span>
                   <div>
@@ -33,11 +34,11 @@ export default function RegistrationTypesSection() {
                 </span>
               </div>
               <div className="mt-3 flex items-baseline gap-2">
-                <span className="text-2xl font-extrabold text-pink-600">$10.00</span>
+                <span className={jysSectionTheme.applyRegistrationTypes.priceText}>$10.00</span>
                 <span className="text-xs font-medium text-slate-500">Registration Fee</span>
               </div>
               <div className="mt-2 flex items-center gap-2 text-xs text-slate-600">
-                <Calendar className="h-4 w-4 text-pink-600" />
+                <Calendar className={jysSectionTheme.applyRegistrationTypes.calendarIcon} />
                 <span className="font-semibold text-slate-700">Registration Period:</span>
                 <span>Aug 01 – Sep 30, 2025</span>
               </div>
@@ -53,7 +54,7 @@ export default function RegistrationTypesSection() {
                   'Participate in interviews and evaluations',
                 ].map((label, idx) => (
                   <li key={idx} className="flex items-center gap-3 px-4 py-3">
-                    <span className="grid h-7 w-7 place-items-center rounded-full bg-pink-600 text-white">
+                    <span className={jysSectionTheme.applyRegistrationTypes.bulletCircle}>
                       <Check className="h-4 w-4" />
                     </span>
                     <span className="text-sm font-medium text-blue-950">{label}</span>
@@ -90,11 +91,11 @@ export default function RegistrationTypesSection() {
           </div>
 
           {/* Self Funded */}
-          <div className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] hover:ring-pink-200">
+          <div className={jysSectionTheme.applyRegistrationTypes.card}>
             <div className="border-b border-slate-200 bg-gradient-to-b from-blue-50/70 to-transparent p-5">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-full bg-pink-600 text-white">
+                  <span className={jysSectionTheme.applyRegistrationTypes.iconCircle}>
                     <CreditCard className="h-5 w-5" />
                   </span>
                   <div>
@@ -107,7 +108,7 @@ export default function RegistrationTypesSection() {
                 </span>
               </div>
               <div className="mt-3 flex items-baseline gap-2">
-                <span className="text-2xl font-extrabold text-pink-600">$15.00</span>
+                <span className={jysSectionTheme.applyRegistrationTypes.priceText}>$15.00</span>
                 <span className="text-xs font-medium text-slate-500">Registration Fee</span>
               </div>
               <div className="mt-2 flex items-center gap-2 text-xs text-slate-600">
@@ -175,10 +176,7 @@ export default function RegistrationTypesSection() {
               </ul>
             </div>
             <div className="p-5 pt-0">
-              <a
-                href="#apply-form"
-                className="inline-flex items-center justify-center rounded-md bg-pink-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-pink-700"
-              >
+              <a href="#apply-form" className={jysSectionTheme.applyRegistrationTypes.ctaButton}>
                 Choose Self Fundedd
               </a>
             </div>

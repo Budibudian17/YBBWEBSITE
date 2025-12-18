@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 export default function LoginPage() {
   const [mode, setMode] = useState<'login' | 'signup'>('login');
@@ -96,7 +97,7 @@ export default function LoginPage() {
                       onChange={onChangeLogin}
                       type="email"
                       required
-                      className="mt-2 w-full rounded-md border border-white/20 bg-white/90 px-4 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-pink-400 focus:ring-2 focus:ring-pink-200"
+                      className={jysSectionTheme.login.input}
                       placeholder="you@example.com"
                     />
                   </div>
@@ -110,7 +111,7 @@ export default function LoginPage() {
                       onChange={onChangeLogin}
                       type="password"
                       required
-                      className="mt-2 w-full rounded-md border border-white/20 bg-white/90 px-4 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-pink-400 focus:ring-2 focus:ring-pink-200"
+                      className={jysSectionTheme.login.input}
                       placeholder="••••••••"
                     />
                   </div>
@@ -118,21 +119,18 @@ export default function LoginPage() {
                     <label className="inline-flex items-center gap-2">
                       <input
                         type="checkbox"
-                        className="h-4 w-4 rounded border-white/30 bg-white/20 text-pink-600 focus:ring-pink-300"
+                        className={jysSectionTheme.login.checkbox}
                         checked={keepSignedIn}
                         onChange={e => setKeepSignedIn(e.target.checked)}
                       />
                       Keep me signed in
                     </label>
-                    <a href="#" className="font-semibold text-white hover:text-pink-200">
+                    <a href="#" className={jysSectionTheme.login.forgotPasswordLink}>
                       Forgot Password?
                     </a>
                   </div>
                   <div className="pt-2">
-                    <button
-                      type="submit"
-                      className="inline-flex w-full items-center justify-center rounded-md bg-pink-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"
-                    >
+                    <button type="submit" className={jysSectionTheme.login.primaryButton}>
                       Login
                     </button>
                   </div>
@@ -141,7 +139,7 @@ export default function LoginPage() {
                     <button
                       type="button"
                       onClick={() => setMode('signup')}
-                      className="font-semibold text-white underline hover:text-pink-200"
+                      className={jysSectionTheme.login.switchModeLink}
                     >
                       Sign up for free
                     </button>
@@ -159,7 +157,7 @@ export default function LoginPage() {
                       onChange={onChangeSignup}
                       type="text"
                       required
-                      className="mt-2 w-full rounded-md border border-white/20 bg-white/90 px-4 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-pink-400 focus:ring-2 focus:ring-pink-200"
+                      className={jysSectionTheme.login.input}
                       placeholder="Hilmi Farrel Firjatullah"
                     />
                   </div>
@@ -173,7 +171,7 @@ export default function LoginPage() {
                       onChange={onChangeSignup}
                       type="email"
                       required
-                      className="mt-2 w-full rounded-md border border-white/20 bg-white/90 px-4 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-pink-400 focus:ring-2 focus:ring-pink-200"
+                      className={jysSectionTheme.login.input}
                       placeholder="hilmi123@example.com"
                     />
                   </div>
@@ -188,7 +186,7 @@ export default function LoginPage() {
                         onChange={onChangeSignup}
                         type="password"
                         required
-                        className="mt-2 w-full rounded-md border border-white/20 bg-white/90 px-4 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-pink-400 focus:ring-2 focus:ring-pink-200"
+                        className={jysSectionTheme.login.input}
                         placeholder="••••••••"
                       />
                     </div>
@@ -202,7 +200,7 @@ export default function LoginPage() {
                         onChange={onChangeSignup}
                         type="password"
                         required
-                        className="mt-2 w-full rounded-md border border-white/20 bg-white/90 px-4 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-pink-400 focus:ring-2 focus:ring-pink-200"
+                        className={jysSectionTheme.login.input}
                         placeholder="••••••••"
                       />
                     </div>
@@ -216,14 +214,14 @@ export default function LoginPage() {
                       value={signupForm.referral}
                       onChange={onChangeSignup}
                       type="text"
-                      className="mt-2 w-full rounded-md border border-white/20 bg-white/90 px-4 py-3 text-sm text-slate-800 outline-none placeholder:text-slate-400 focus:border-pink-400 focus:ring-2 focus:ring-pink-200"
+                      className={jysSectionTheme.login.input}
                       placeholder="ABC-123"
                     />
                   </div>
                   <label className="mt-1 inline-flex items-center gap-2 text-xs text-white/90">
                     <input
                       type="checkbox"
-                      className="h-4 w-4 rounded border-white/30 bg-white/20 text-pink-600 focus:ring-pink-300"
+                      className={jysSectionTheme.login.checkbox}
                       checked={agree}
                       onChange={e => setAgree(e.target.checked)}
                       required
@@ -238,10 +236,7 @@ export default function LoginPage() {
                     </a>
                   </label>
                   <div className="pt-2">
-                    <button
-                      type="submit"
-                      className="inline-flex w-full items-center justify-center rounded-md bg-pink-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"
-                    >
+                    <button type="submit" className={jysSectionTheme.login.primaryButton}>
                       Create Account
                     </button>
                   </div>
@@ -250,7 +245,7 @@ export default function LoginPage() {
                     <button
                       type="button"
                       onClick={() => setMode('login')}
-                      className="font-semibold text-white underline hover:text-pink-200"
+                      className={jysSectionTheme.login.switchModeLink}
                     >
                       Log in
                     </button>

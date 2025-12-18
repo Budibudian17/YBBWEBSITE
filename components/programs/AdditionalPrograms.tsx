@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 export default function AdditionalPrograms() {
   const items: { title: string; dates: string; cover: string; logo: string; href?: string }[] = [
@@ -39,7 +40,7 @@ export default function AdditionalPrograms() {
     <section className="bg-[#edf5ff] px-6 py-12 sm:py-14 md:py-16 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader title="Our Additional Programs" />
-        <p className="-mt-6 mb-8 text-center text-sm text-pink-600 sm:text-base">
+        <p className={jysSectionTheme.programsAdditional.subtitle}>
           Explore more programs you can join soon
         </p>
         <div className="flex flex-wrap justify-center gap-6">
@@ -71,12 +72,10 @@ export default function AdditionalPrograms() {
               </div>
               <div className="flex items-start justify-between gap-3 p-5">
                 <div>
-                  <h4 className="text-base font-extrabold text-gray-900 group-hover:text-pink-700 sm:text-lg">
-                    {it.title}
-                  </h4>
+                  <h4 className={jysSectionTheme.programsAdditional.cardTitle}>{it.title}</h4>
                   <p className="mt-1 text-sm text-gray-600">{it.dates}</p>
                 </div>
-                <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border border-pink-200 bg-pink-50 text-pink-600 transition group-hover:bg-pink-600 group-hover:text-white">
+                <span className={jysSectionTheme.programsAdditional.arrowCircle}>
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </div>

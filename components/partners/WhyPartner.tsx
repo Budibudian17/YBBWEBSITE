@@ -1,5 +1,6 @@
 import { Globe2, Sparkles, Megaphone, HeartHandshake, Network } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 // Section: Why Partner With Us? — dipisah biar rapi & reusable
 export default function WhyPartnerSection() {
@@ -11,40 +12,48 @@ export default function WhyPartnerSection() {
           {/* Kiri: fitur 2x2 */}
           <div className="lg:col-span-2">
             <div className="grid gap-6 sm:grid-cols-2">
-              <div className="rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] hover:ring-pink-200">
-                <div className="mb-2 grid h-10 w-10 place-items-center rounded-full bg-pink-600 text-white">
+              <div className={jysSectionTheme.partnersWhy.featureCard}>
+                <div className={jysSectionTheme.partnersWhy.featureIconCircle}>
                   <Globe2 className="h-5 w-5" />
                 </div>
                 <h3 className="text-base font-extrabold text-blue-900">Global Reach</h3>
-                <p className="mt-1 text-sm leading-6 text-slate-700">Connect with 4,000+ young leaders from 120+ countries</p>
+                <p className="mt-1 text-sm leading-6 text-slate-700">
+                  Connect with 4,000+ young leaders from 120+ countries
+                </p>
               </div>
-              <div className="rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] hover:ring-pink-200">
-                <div className="mb-2 grid h-10 w-10 place-items-center rounded-full bg-pink-600 text-white">
+              <div className={jysSectionTheme.partnersWhy.featureCard}>
+                <div className={jysSectionTheme.partnersWhy.featureIconCircle}>
                   <Sparkles className="h-5 w-5" />
                 </div>
                 <h3 className="text-base font-extrabold text-blue-900">Innovation Focus</h3>
-                <p className="mt-1 text-sm leading-6 text-slate-700">Support cutting-edge projects and social impact initiatives</p>
+                <p className="mt-1 text-sm leading-6 text-slate-700">
+                  Support cutting-edge projects and social impact initiatives
+                </p>
               </div>
-              <div className="rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] hover:ring-pink-200">
-                <div className="mb-2 grid h-10 w-10 place-items-center rounded-full bg-pink-600 text-white">
+              <div className={jysSectionTheme.partnersWhy.featureCard}>
+                <div className={jysSectionTheme.partnersWhy.featureIconCircle}>
                   <Megaphone className="h-5 w-5" />
                 </div>
                 <h3 className="text-base font-extrabold text-blue-900">Brand Visibility</h3>
-                <p className="mt-1 text-sm leading-6 text-slate-700">Enhance your brand presence among future leaders</p>
+                <p className="mt-1 text-sm leading-6 text-slate-700">
+                  Enhance your brand presence among future leaders
+                </p>
               </div>
-              <div className="rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] hover:ring-pink-200">
-                <div className="mb-2 grid h-10 w-10 place-items-center rounded-full bg-pink-600 text-white">
+              <div className={jysSectionTheme.partnersWhy.featureCard}>
+                <div className={jysSectionTheme.partnersWhy.featureIconCircle}>
                   <HeartHandshake className="h-5 w-5" />
                 </div>
                 <h3 className="text-base font-extrabold text-blue-900">Social Impact</h3>
-                <p className="mt-1 text-sm leading-6 text-slate-700">Make a lasting difference in youth development worldwide</p>
+                <p className="mt-1 text-sm leading-6 text-slate-700">
+                  Make a lasting difference in youth development worldwide
+                </p>
               </div>
             </div>
           </div>
           {/* Kanan: CTA mandiri */}
           <div className="flex items-center justify-center">
-            <div className="relative flex w-full max-w-md flex-col items-center justify-center overflow-hidden rounded-2xl bg-[url('/img/bgourprogram.png')] bg-cover bg-center p-10 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-pink-100 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] hover:ring-pink-200">
-              <div className="mb-3 grid h-16 w-16 place-items-center rounded-full bg-pink-600 text-white shadow">
+            <div className={jysSectionTheme.partnersWhy.ctaCard}>
+              <div className={jysSectionTheme.partnersWhy.ctaIconCircle}>
                 <Network className="h-8 w-8" />
               </div>
               <h3 className="text-center text-xl font-extrabold text-blue-900">Join Our Network</h3>

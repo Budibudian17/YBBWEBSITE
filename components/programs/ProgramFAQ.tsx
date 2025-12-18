@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { HelpCircle, ChevronDown } from 'lucide-react';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 export type FAQ = { q: string; a: string };
 
@@ -26,19 +27,17 @@ export default function ProgramFAQ({ groups }: { groups: { label: string; faqs: 
                   setActive(i);
                   setOpenIdx(0);
                 }}
-                className={`relative px-4 py-5 text-center text-base font-extrabold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 sm:px-6 sm:text-lg ${
-                  i === active
-                    ? 'text-blue-950'
-                    : 'text-blue-900/70 hover:bg-pink-50 hover:text-blue-950 hover:shadow-sm hover:ring-1 hover:ring-pink-200'
+                className={`${jysSectionTheme.programFAQ.tabButton} ${
+                  i === active ? 'text-blue-950' : jysSectionTheme.programFAQ.tabInactive
                 }`}
                 aria-current={i === active}
               >
                 <span className="inline-flex items-center justify-center gap-2">
-                  <HelpCircle className="h-4 w-4 text-pink-600" />
+                  <HelpCircle className={jysSectionTheme.programFAQ.tabLabelIcon} />
                   <span>{g.label}</span>
                 </span>
                 {i === active ? (
-                  <span className="absolute inset-x-0 bottom-0 block h-0.5 bg-pink-600" />
+                  <span className={jysSectionTheme.programFAQ.tabActiveUnderline} />
                 ) : (
                   <span className="absolute inset-y-3 right-0 hidden w-px bg-blue-100 last:hidden sm:block" />
                 )}

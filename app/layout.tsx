@@ -18,7 +18,7 @@ export const metadata: Metadata = defaultMetadata;
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={plusJakarta.className}>
+      <body className={plusJakarta.className} data-program="jys">
         <PromoCTAProvider>
           <ClientNavbarGate />
           {children}

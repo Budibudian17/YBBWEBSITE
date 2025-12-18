@@ -1,6 +1,7 @@
-"use client";
+'use client';
 import { useState } from 'react';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 export type AnnouncementItem = {
   id: number | string;
@@ -27,9 +28,7 @@ export default function AnnouncementsGrid({
     <section className="px-6 py-12 sm:py-14 md:py-16 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader eyebrow="Announcements" title={title} />
-        {subtitle ? (
-          <p className="-mt-6 mb-8 text-center text-sm text-pink-600">{subtitle}</p>
-        ) : null}
+        {subtitle ? <p className={jysSectionTheme.announcementsGrid.subtitle}>{subtitle}</p> : null}
 
         {/* grid berita — komponen ini reusable biar gampang dipakai di halaman lain */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -39,7 +38,7 @@ export default function AnnouncementsGrid({
               <Wrapper
                 key={n.id}
                 {...(n.href ? { href: n.href } : {})}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] hover:ring-pink-200"
+                className={jysSectionTheme.announcementsGrid.card}
               >
                 <div className="h-44 w-full overflow-hidden sm:h-52">
                   <img
@@ -67,7 +66,7 @@ export default function AnnouncementsGrid({
             <button
               type="button"
               onClick={() => setVisible(v => Math.min(v + 6, items.length))}
-              className="inline-flex items-center justify-center rounded-md bg-pink-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"
+              className={jysSectionTheme.announcementsGrid.loadMoreButton}
             >
               Load More
             </button>

@@ -173,7 +173,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="relative w-full overflow-x-hidden bg-white py-16 sm:py-20">
+    <section className="relative w-full overflow-x-hidden bg-pink-50 py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeader title="Voices of Success: Our Community Speaks" />
         <p className="-mt-6 mb-10 text-center text-sm text-pink-600">
@@ -183,14 +183,14 @@ export default function Testimonials() {
 
         {/* Full card dari ujung kanan ke kiri ( animasi geser ) */}
       </div>
-      <div className="space-y-8 px-4 sm:px-6 lg:px-8">
+      <div className="space-y-8">
         {rows.map((row, i) => (
           <div key={i} className="relative overflow-hidden py-3">
             {/* fade mask kiri/kanan biar ga keliatan 'mentok' */}
             <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-white to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent" />
             <div
-              className={`flex gap-5 whitespace-nowrap px-4 sm:gap-6 sm:px-6 ${
+              className={`flex gap-5 whitespace-nowrap sm:gap-6 ${
                 row.direction === 'left' ? 'animate-marquee' : 'animate-marquee-reverse'
               }`}
               style={{ ['--duration' as any]: '55s' }}

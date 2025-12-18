@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { ArrowRight } from 'lucide-react';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 // Section daftar program JYS terdahulu — style tetep nge-blend sama tema web
 export default function PreviousPrograms() {
@@ -60,21 +61,16 @@ export default function PreviousPrograms() {
                   priority={false}
                 />
                 {/* badge tahun biar keliatan jelas */}
-                <div className="absolute left-3 top-3 inline-flex items-center rounded-full border border-pink-200 bg-pink-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-pink-700">
-                  JYS {it.year}
-                </div>
+                <div className={jysSectionTheme.programsPrevious.yearBadge}>JYS {it.year}</div>
               </div>
               <div className="flex items-start justify-between gap-3 p-5">
                 <div>
-                  <h4 className="text-base font-extrabold text-gray-900 group-hover:text-pink-700 sm:text-lg">
+                  <h4 className={jysSectionTheme.programsPrevious.cardTitle}>
                     {it.city}, {it.country}
                   </h4>
                   <p className="mt-1 text-sm text-gray-600">{it.dates}</p>
                 </div>
-                <a
-                  href={it.href || '#'}
-                  className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 text-pink-600 transition hover:bg-gray-50 hover:text-pink-700"
-                >
+                <a href={it.href || '#'} className={jysSectionTheme.programsPrevious.arrowButton}>
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </div>

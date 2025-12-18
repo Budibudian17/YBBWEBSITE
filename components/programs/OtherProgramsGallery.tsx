@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 // Foto-foto program lain (biar ga lorem, pake aset yang ada di /public/img)
 const items: {
@@ -19,7 +20,12 @@ const items: {
   },
   {
     title: 'World Youth Fest 2025',
-    photos: ['/img/programoverview.png', '/img/programhighlight1.jpg', '/img/osaka.jpg', '/img/jysprogram1.jpg'],
+    photos: [
+      '/img/programoverview.png',
+      '/img/programhighlight1.jpg',
+      '/img/osaka.jpg',
+      '/img/jysprogram1.jpg',
+    ],
     href: '#',
   },
   {
@@ -34,12 +40,12 @@ export default function OtherProgramsGallery() {
     <section className="px-6 py-12 sm:py-14 md:py-16 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader title="Other Programs" />
-        <p className="-mt-6 mb-8 text-center text-sm text-pink-600 sm:text-base">
+        <p className={jysSectionTheme.galleryOtherPrograms.subtitle}>
           Discover photos from our other exciting events and initiatives
         </p>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((it) => (
+          {items.map(it => (
             <a
               key={it.title}
               href={it.href || '#'}
@@ -61,13 +67,16 @@ export default function OtherProgramsGallery() {
               </div>
               {/* body */}
               <div className="p-5">
-                <h4 className="text-base font-extrabold text-blue-950 group-hover:text-pink-700 sm:text-lg">
-                  {it.title}
-                </h4>
+                <h4 className={jysSectionTheme.galleryOtherPrograms.cardTitle}>{it.title}</h4>
                 <div className="mt-4">
-                  <span className="inline-flex items-center gap-1 rounded-md border border-pink-200 px-3 py-2 text-xs font-semibold text-pink-700 transition group-hover:border-pink-300">
+                  <span className={jysSectionTheme.galleryOtherPrograms.visitChip}>
                     Visit Website
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="h-4 w-4"
+                    >
                       <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z" />
                       <path d="M5 5h5V3H3v7h2V5z" />
                     </svg>

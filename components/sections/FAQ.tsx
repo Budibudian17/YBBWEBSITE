@@ -1,5 +1,6 @@
 import { ChevronDown } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 export default function FAQ() {
   const faqs: { q: string; a: string }[] = [
@@ -38,7 +39,7 @@ export default function FAQ() {
             <details key={idx} className="group" {...(idx === 0 ? { open: true } : {})}>
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 sm:px-6">
                 <span className="font-semibold text-blue-950/90 sm:text-lg">{item.q}</span>
-                <span className="shrink-0 rounded-full bg-pink-50 p-2 text-pink-600 ring-1 ring-pink-200 transition group-open:rotate-180">
+                <span className={jysSectionTheme.faq.toggleIcon}>
                   <ChevronDown className="h-4 w-4" />
                 </span>
               </summary>
