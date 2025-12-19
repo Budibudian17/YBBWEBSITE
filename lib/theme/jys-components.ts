@@ -255,9 +255,14 @@ export const jysSectionTheme = {
   programsPrevious: {
     yearBadge:
       'absolute left-3 top-3 inline-flex items-center rounded-full border border-pink-200 bg-pink-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-pink-700',
-    cardTitle: 'text-base font-extrabold text-gray-900 group-hover:text-pink-700 sm:text-lg',
+    subtitle: '-mt-6 mb-8 text-center text-sm text-pink-600 sm:text-base',
+    card: 'w-[340px] overflow-hidden rounded-3xl bg-white shadow-[0_18px_60px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/80 sm:w-[360px]',
+    cardTitle: 'text-base font-semibold text-blue-950 sm:text-lg',
+    cardDate: 'mt-1 text-sm text-slate-600',
     arrowButton:
-      'mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 text-pink-600 transition hover:bg-gray-50 hover:text-pink-700',
+      'flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900',
+    dotActive: 'h-2.5 w-8 rounded-full bg-pink-500',
+    dotInactive: 'h-2.5 w-2.5 rounded-full bg-gray-300 hover:bg-gray-400',
   },
   programsAdditional: {
     subtitle: '-mt-6 mb-8 text-center text-sm text-pink-600 sm:text-base',

@@ -17,12 +17,12 @@ export default function ProgramOverviewPage() {
   return (
     <main className="relative">
       <HeroSection
-        title="Program Overview"
-        subtitle="Discover comprehensive business training programs designed to empower young entrepreneurs with essential skills and knowledge."
+        title="Japan Youth Summit 2026"
+        subtitle="Explore the full details of our latest program edition – dates, activities, requirements, and everything you need to join Japan Youth Summit 2026."
         bgImage="/img/bgprogramoverview.png"
         breadcrumb={[
           { href: '/', label: 'Home' },
-          { href: '/programs', label: 'Program Overview' },
+          { href: '/programs', label: 'Japan Youth Summit 2026' },
         ]}
       />
       <CurrentProgram />

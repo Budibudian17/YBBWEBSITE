@@ -1,58 +1,136 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
+import clsx from 'clsx';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { jysSectionTheme } from '@/lib/theme/jys-components';
 
-const PREVIOUS_ITEMS = [
+const programs = [
   {
-    title: 'Japan Youth Summit 2025',
-    dates: 'August 10 – August 13, 2025',
-    cover: '/img/bannerjys.png',
-    href: '#',
+    title: 'Japan Youth Summit 2023',
+    date: 'August 08 – August 11, 2023',
+    image: '/img/bannerjys.png',
   },
   {
     title: 'Japan Youth Summit 2024',
-    dates: 'August 12 – August 15, 2024',
-    cover: '/img/bannerjys.png',
-    href: '#',
+    date: 'August 12 – August 15, 2024',
+    image: '/img/bannerjys.png',
   },
   {
-    title: 'Japan Youth Summit 2023',
-    dates: 'August 08 – August 11, 2023',
-    cover: '/img/bannerjys.png',
-    href: '#',
+    title: 'Japan Youth Summit 2025',
+    date: 'August 10 – August 13, 2025',
+    image: '/img/bannerjys.png',
   },
 ];
 
-export default function PreviousProgramsGrid() {
+export default function ProgramCarousel() {
+  const [active, setActive] = useState(0);
+  const total = programs.length;
+
+  const next = () => setActive(i => (i + 1) % total);
+  const prev = () => setActive(i => (i - 1 + total) % total);
+
   return (
-    <section className="px-6 py-12 sm:py-14 md:py-16 lg:px-8">
+    <section className="sm:py-18 relative w-full overflow-hidden px-6 py-16 md:py-20">
       <div className="mx-auto max-w-7xl">
+        {/* HEADER */}
         <SectionHeader eyebrow="Previous Program" title="Previous Japan Youth Summit Programs" />
-        <p className={jysSectionTheme.programsAdditional.subtitle}>
+        <p className={jysSectionTheme.programsPrevious.subtitle}>
           A look back at past Japan Youth Summit editions
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-6">
-          {PREVIOUS_ITEMS.map(it => (
-            <a
-              key={it.title}
-              href={it.href || '#'}
-              className="group w-[320px] overflow-hidden rounded-2xl bg-white ring-1 ring-gray-200 transition hover:shadow-md sm:w-[360px]"
-            >
-              <div className="relative aspect-[16/9] overflow-hidden">
-                <Image
-                  src={it.cover}
-                  alt={it.title}
-                  fill
-                  sizes="(min-width:1024px) 360px, (min-width:640px) 50vw, 100vw"
-                  className="object-cover transition group-hover:scale-105"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className={jysSectionTheme.programsAdditional.cardTitle}>{it.title}</h3>
-                <p className="mt-1 text-sm text-gray-600">{it.dates}</p>
-              </div>
-            </a>
-          ))}
+
+        {/* CAROUSEL STAGE + ARROWS */}
+        <div className="relative mt-10 flex h-[480px] items-center justify-center">
+          <button
+            onClick={prev}
+            aria-label="Previous program"
+            className={clsx(
+              'absolute left-20 z-30 hidden sm:flex',
+              jysSectionTheme.programsPrevious.arrowButton
+            )}
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            onClick={next}
+            aria-label="Next program"
+            className={clsx(
+              'absolute right-20 z-30 hidden sm:flex',
+              jysSectionTheme.programsPrevious.arrowButton
+            )}
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+
+          {/* CAROUSEL STAGE */}
+          <div className="relative mx-auto flex h-full w-full max-w-5xl items-center justify-center">
+            {programs.map((item, i) => {
+              const diff = (i - active + total) % total;
+
+              let transform = '';
+              let z = 0;
+              let opacity = '';
+
+              if (diff === 0) {
+                transform = 'translate-x-0 scale-100';
+                z = 30;
+                opacity = 'opacity-100';
+              } else if (diff === 1 || diff === total - 1) {
+                transform =
+                  diff === 1 ? 'translate-x-[55%] scale-95' : '-translate-x-[55%] scale-95';
+                z = 20;
+                opacity = 'opacity-60';
+              } else {
+                transform =
+                  diff > 1 ? 'translate-x-[120%] scale-90' : '-translate-x-[120%] scale-90';
+                z = 10;
+                opacity = 'opacity-0';
+              }
+
+              return (
+                <div
+                  key={i}
+                  className={clsx(
+                    'absolute transition-all duration-500 ease-in-out',
+                    transform,
+                    opacity
+                  )}
+                  style={{ zIndex: z }}
+                >
+                  {/* ===== CARD ===== */}
+                  <div className={jysSectionTheme.programsPrevious.card}>
+                    <div className="relative h-[220px] w-full">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(min-width:1024px) 360px, (min-width:640px) 60vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+
+                    <div className="p-6">
+                      <h3 className={jysSectionTheme.programsPrevious.cardTitle}>{item.title}</h3>
+                      <p className={jysSectionTheme.programsPrevious.cardDate}>{item.date}</p>
+
+                      <button
+                        type="button"
+                        className={clsx(
+                          jysSectionTheme.homeRegistration.guidePrimary,
+                          'mt-5 flex w-full items-center justify-center text-sm'
+                        )}
+                      >
+                        Read More
+                      </button>
+                    </div>
+                  </div>
+                  {/* ===== END CARD ===== */}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
