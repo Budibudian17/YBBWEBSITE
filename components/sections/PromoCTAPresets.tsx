@@ -1,9 +1,13 @@
 import React from 'react';
 import PromoCTA from './PromoCTA';
+import ProgramsFurtherInformationSection from '@/components/programs/ProgramsFurtherInformation';
 
 export function getCTAPreset(pathname: string | null | undefined) {
   const p = pathname || '/';
   // Order matters: match most specific first
+  if (p.startsWith('/apply/fully-funded')) {
+    return <ProgramsFurtherInformationSection />;
+  }
   if (p.startsWith('/programs')) {
     return (
       <section className="relative w-full overflow-hidden bg-[url('/img/bg3strip.png')] bg-cover bg-center py-12 text-white sm:py-16 lg:py-20">
@@ -17,7 +21,7 @@ export function getCTAPreset(pathname: string | null | undefined) {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="/login"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-md px-5 py-3 text-sm font-semibold shadow-sm transition"
+              className="hover:bg-accent/90 rounded-md bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground shadow-sm transition"
             >
               Register Now
             </a>
@@ -34,7 +38,7 @@ export function getCTAPreset(pathname: string | null | undefined) {
   }
   if (p.startsWith('/insights')) {
     return (
-      <section className="from-accent relative w-full overflow-hidden bg-gradient-to-r to-fuchsia-600 py-12 text-white sm:py-16 lg:py-20">
+      <section className="relative w-full overflow-hidden bg-gradient-to-r from-accent to-fuchsia-600 py-12 text-white sm:py-16 lg:py-20">
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold leading-tight sm:text-4xl lg:text-5xl">
             Get the latest insights
@@ -45,7 +49,7 @@ export function getCTAPreset(pathname: string | null | undefined) {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="/insights"
-              className="text-accent hover:bg-accent/5 rounded-md bg-white px-5 py-3 text-sm font-semibold shadow-sm transition"
+              className="hover:bg-accent/5 rounded-md bg-white px-5 py-3 text-sm font-semibold text-accent shadow-sm transition"
             >
               Browse Insights
             </a>

@@ -1,6 +1,8 @@
 import HeroSection from '@/components/ui/HeroSection';
-import FullyFundedOverviewSection from '@/components/apply/FullyFundedOverview';
-import FullyFundedRequirementsSection from '@/components/apply/FullyFundedRequirements';
+import EarlyBidCTA from '@/components/sections/EarlyBidCTA';
+import FullyFundedOverviewSection from '@/components/apply/fully-funded/FullyFundedOverview';
+import FullyFundedPaymentSection from '@/components/apply/fully-funded/FullyFundedPayment';
+import FullyFundedPaymentMethodsSection from '@/components/apply/fully-funded/FullyFundedPaymentMethods';
 
 export default function FullyFundedPage() {
   return (
@@ -16,7 +18,9 @@ export default function FullyFundedPage() {
         ]}
       />
       <FullyFundedOverviewSection />
-      <FullyFundedRequirementsSection />
+      <EarlyBidCTA />
+      <FullyFundedPaymentSection />
+      <FullyFundedPaymentMethodsSection />
     </main>
   );
 }
