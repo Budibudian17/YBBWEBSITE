@@ -93,7 +93,7 @@ export default function RegistrationTypePrograms() {
               <div className="p-5 pt-0">
                 <div className="flex justify-center">
                   <a
-                    href="/apply#self-funded"
+                    href="/apply/self-funded"
                     className={`${jysSectionTheme.applyRegistrationTypes.ctaButton} w-full max-w-xs justify-center py-3 text-sm`}
                   >
                     See Details

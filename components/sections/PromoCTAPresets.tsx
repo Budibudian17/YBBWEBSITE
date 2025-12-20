@@ -5,7 +5,7 @@ import ProgramsFurtherInformationSection from '@/components/programs/ProgramsFur
 export function getCTAPreset(pathname: string | null | undefined) {
   const p = pathname || '/';
   // Order matters: match most specific first
-  if (p.startsWith('/apply/fully-funded')) {
+  if (p.startsWith('/apply/fully-funded') || p.startsWith('/apply/self-funded')) {
     return <ProgramsFurtherInformationSection />;
   }
   if (p.startsWith('/programs')) {

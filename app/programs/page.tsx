@@ -19,7 +19,7 @@ export default function ProgramOverviewPage() {
       <HeroSection
         title="Japan Youth Summit 2026"
         subtitle="Explore the full details of our latest program edition – dates, activities, requirements, and everything you need to join Japan Youth Summit 2026."
-        bgImage="/img/bgprogramoverview.png"
+        bgImage="/img/programsbackground.png"
         breadcrumb={[
           { href: '/', label: 'Home' },
           { href: '/programs', label: 'Japan Youth Summit 2026' },

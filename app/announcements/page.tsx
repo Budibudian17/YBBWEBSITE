@@ -1,24 +1,17 @@
-import HeroSection from '@/components/ui/HeroSection';
+import AnnouncementsHero from '@/components/announcements/AnnouncementsHero';
 import AnnouncementsGrid from '@/components/announcements/AnnouncementsGrid';
 import { announcementsData } from '@/data/announcements';
 
 export default function AnnouncementsPage() {
   return (
     <main className="relative">
-      {/* Hero — pakai komponen reusable biar rapi */}
-      <HeroSection
-        title="Announcements"
-        subtitle="Latest updates, deadlines, and official notices from YBB & JYS."
-        bgImage="/img/bgprogramoverview.png"
-        breadcrumb={[
-          { href: '/', label: 'Home' },
-          { href: '/announcements', label: 'Announcements' },
-        ]}
-      />
+      {/* Hero slider — highlight beberapa berita terbaru */}
+      <AnnouncementsHero />
 
       {/* Section pengumuman — dipisah ke komponen biar clean */}
-      <AnnouncementsGrid items={announcementsData} />
+      <section id="announcements">
+        <AnnouncementsGrid items={announcementsData} />
+      </section>
     </main>
   );
 }
-
