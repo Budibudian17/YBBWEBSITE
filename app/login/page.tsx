@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import SmartImage from '@/components/ui/SmartImage';
 import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 export default function LoginPage() {
@@ -43,10 +44,10 @@ export default function LoginPage() {
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 overflow-hidden rounded-none bg-white shadow-none ring-0 sm:rounded-2xl sm:shadow-[0_20px_60px_rgba(2,6,23,0.1)] sm:ring-1 sm:ring-slate-200 lg:grid-cols-2">
         {/* Gambar Kiri */}
         <div className="relative hidden lg:block">
-          <img
+          <SmartImage
             src="/img/coverloginsignin.png"
             alt="Japan Youth Summit"
-            className="absolute inset-0 h-full w-full object-cover"
+            wrapperClassName="absolute inset-0 h-full w-full overflow-hidden"
           />
         </div>
 

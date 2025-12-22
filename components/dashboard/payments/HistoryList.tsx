@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { Clock, XCircle, CheckCircle2 } from 'lucide-react';
+import SmartImage from '@/components/ui/SmartImage';
 
 export type HistoryItem = {
   id: string;
@@ -114,10 +115,11 @@ export default function HistoryList({
               </p>
               {active.details?.proofUrl ? (
                 <div className="mt-2 space-y-2">
-                  <img
+                  <SmartImage
                     src={active.details.proofUrl}
                     alt="Payment proof"
-                    className="max-h-72 w-full rounded-md object-contain ring-1 ring-slate-200"
+                    wrapperClassName="max-h-72 w-full overflow-hidden rounded-md ring-1 ring-slate-200"
+                    className="h-full w-full object-contain"
                   />
                   <div className="flex gap-2">
                     <a
@@ -260,7 +262,7 @@ function Modal({ children, onClose }: { children: React.ReactNode; onClose: () =
       />
       <div
         className={`absolute inset-x-0 top-10 mx-auto w-[min(680px,92vw)] rounded-2xl bg-white p-5 shadow-2xl ring-1 ring-slate-200 transition-all duration-200 ${
-          visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 -translate-y-2 scale-95'
+          visible ? 'translate-y-0 scale-100 opacity-100' : '-translate-y-2 scale-95 opacity-0'
         }`}
       >
         <div className="mb-3 flex items-center justify-between">

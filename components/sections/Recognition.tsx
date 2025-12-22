@@ -1,6 +1,7 @@
 'use client';
 
 import SectionHeader from '@/components/ui/SectionHeader';
+import SmartImage from '@/components/ui/SmartImage';
 import { jysSectionTheme } from '@/lib/theme/jys-components';
 import {
   Building2,
@@ -129,7 +130,12 @@ export default function Recognition({
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <img src="/img/jys.png" alt="JYS" className="h-20 w-auto" />
+                <SmartImage
+                  src="/img/jys.png"
+                  alt="JYS"
+                  wrapperClassName="h-20 w-auto"
+                  className="h-full w-auto object-contain"
+                />
                 <div>
                   <p className={jysSectionTheme.recognition.hakiBrand}>{haki.brand}</p>
                   <p className={jysSectionTheme.recognition.hakiClassText}>{haki.classText}</p>
