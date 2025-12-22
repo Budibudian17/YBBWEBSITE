@@ -11,6 +11,7 @@ export const announcementsData: AnnouncementItem[] = [
     author: 'YBB Secretariat',
     date: 'Nov 7, 2025',
     href: '#',
+    category: 'program-news',
   },
   {
     id: 'visa-briefing',
@@ -21,6 +22,7 @@ export const announcementsData: AnnouncementItem[] = [
     author: 'Program Team',
     date: 'Nov 5, 2025',
     href: '#',
+    category: 'conference',
   },
   {
     id: 'scholarship-update',
@@ -28,9 +30,10 @@ export const announcementsData: AnnouncementItem[] = [
     title: 'Scholarship - Additional Partial Available',
     excerpt:
       'Thanks to new partner support, we are adding limited partial scholarships for community leaders focusing on SDGs 4, 8, and 13.',
-    author: 'Partnerships Office',
-    date: 'Nov 2, 2025',
+    author: 'Scholarship Committee',
+    date: 'Nov 3, 2025',
     href: '#',
+    category: 'scholarship',
   },
   {
     id: 'shortlist-batch-1',

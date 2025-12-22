@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import HeroSection from '@/components/ui/HeroSection';
 import { announcementsData } from '@/data/announcements';
 
@@ -84,31 +85,33 @@ export default function AnnouncementsHero() {
         <button
           type="button"
           onClick={goPrev}
-          className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/35 text-white shadow-md backdrop-blur transition hover:bg-black/55"
+          className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-pink-600 shadow-md shadow-pink-500/20 ring-1 ring-white/60 backdrop-blur transition hover:bg-pink-50 hover:text-pink-700"
           aria-label="Previous announcement"
         >
-          ‹
+          <ChevronLeft className="h-4 w-4" />
         </button>
         <button
           type="button"
           onClick={goNext}
-          className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/35 text-white shadow-md backdrop-blur transition hover:bg-black/55"
+          className="pointer-events-auto inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-pink-600 shadow-md shadow-pink-500/20 ring-1 ring-white/60 backdrop-blur transition hover:bg-pink-50 hover:text-pink-700"
           aria-label="Next announcement"
         >
-          ›
+          <ChevronRight className="h-4 w-4" />
         </button>
       </div>
 
       {/* Dots indicator */}
       <div className="pointer-events-none absolute bottom-4 left-1/2 z-30 -translate-x-1/2">
-        <div className="pointer-events-auto inline-flex gap-2 rounded-full bg-black/25 px-3 py-1 backdrop-blur">
+        <div className="pointer-events-auto inline-flex gap-2 rounded-full border border-white/30 bg-white/15 px-3 py-1 shadow-sm shadow-black/20 backdrop-blur">
           {HERO_SLIDES.map((slide, i) => (
             <button
               key={slide.id}
               type="button"
               onClick={() => setIndex(i)}
-              className={`h-2.5 w-2.5 rounded-full transition ${
-                i === index ? 'bg-white' : 'bg-white/40 hover:bg-white/70'
+              className={`h-2 w-2 rounded-full transition ${
+                i === index
+                  ? 'bg-white shadow-sm shadow-pink-500/40'
+                  : 'bg-white/50 hover:bg-white/80'
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />
