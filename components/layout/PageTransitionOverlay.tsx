@@ -7,11 +7,40 @@ export default function PageTransitionOverlay() {
   const pathname = usePathname();
   const [isActive, setIsActive] = useState(false);
 
-  // Trigger overlay animation whenever pathname changes
+  // Trigger overlay animation only on first visit per pathname
   useEffect(() => {
     if (!pathname) return;
+
+    // read visited paths from localStorage
+    let visited: string[] = [];
+    try {
+      const raw = window.localStorage.getItem('ybb_visited_paths');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          visited = parsed;
+        }
+      }
+    } catch {
+      // ignore parse errors and treat as no cache
+    }
+
+    // if this pathname already visited, skip overlay
+    if (visited.includes(pathname)) {
+      setIsActive(false);
+      return;
+    }
+
+    // mark as visited for next time
+    const updated = Array.from(new Set([...visited, pathname]));
+    try {
+      window.localStorage.setItem('ybb_visited_paths', JSON.stringify(updated));
+    } catch {
+      // ignore quota errors
+    }
+
     setIsActive(true);
-    const id = setTimeout(() => setIsActive(false), 3000); // 5s overlay per user preference
+    const id = setTimeout(() => setIsActive(false), 4000); // 4s overlay for first-time visit
     return () => clearTimeout(id);
   }, [pathname]);
 
