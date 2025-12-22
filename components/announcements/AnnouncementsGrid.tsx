@@ -1,8 +1,8 @@
 'use client';
+import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
-import SmartImage from '@/components/ui/SmartImage';
 import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 export type AnnouncementCategory =
@@ -116,9 +116,50 @@ export default function AnnouncementsGrid({
 
         {/* grid berita — komponen ini reusable biar gampang dipakai di halaman lain */}
         <div className="mt-6 grid gap-6 md:mt-8 md:grid-cols-2 lg:grid-cols-3">
-          {visibleItems.map(item => (
-            <AnnouncementCard key={item.id} item={item} />
-          ))}
+          {visibleItems.map(n => {
+            const Wrapper: React.ElementType = n.href ? 'a' : 'article';
+            return (
+              <Wrapper
+                key={n.id}
+                {...(n.href ? { href: n.href } : {})}
+                className={jysSectionTheme.announcementsGrid.card}
+              >
+                <div className="relative h-44 w-full overflow-hidden sm:h-52">
+                  <Image
+                    src={n.image}
+                    alt={n.title}
+                    fill
+                    className="origin-center scale-100 transform object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-5">
+                  {n.category ? (
+                    <p className="mb-2 inline-flex items-center rounded-full bg-pink-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-pink-700">
+                      {n.category === 'program-news'
+                        ? 'Program'
+                        : n.category === 'scholarship'
+                          ? 'Scholar'
+                          : n.category === 'conference'
+                            ? 'Conference'
+                            : n.category === 'awards'
+                              ? 'Awards'
+                              : n.category === 'summit'
+                                ? 'Summit'
+                                : n.category}
+                    </p>
+                  ) : null}
+                  <h3 className="text-xl font-extrabold text-blue-950">{n.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-700">{n.excerpt}</p>
+                  <div className="mt-4 h-px w-full bg-slate-200" />
+                  <p className="mt-3 text-xs font-semibold text-blue-900">
+                    {n.author} <span className="text-slate-500"> - </span>{' '}
+                    <span className="text-blue-900">{n.date}</span>
+                  </p>
+                </div>
+              </Wrapper>
+            );
+          })}
         </div>
 
         {visible < filteredItems.length && (
@@ -134,47 +175,5 @@ export default function AnnouncementsGrid({
         )}
       </div>
     </section>
-  );
-}
-
-function AnnouncementCard({ item }: { item: AnnouncementItem }) {
-  const Wrapper: React.ElementType = item.href ? 'a' : 'article';
-
-  return (
-    <Wrapper
-      {...(item.href ? { href: item.href } : {})}
-      className={jysSectionTheme.announcementsGrid.card}
-    >
-      <SmartImage
-        src={item.image}
-        alt=""
-        wrapperClassName="relative h-44 w-full overflow-hidden sm:h-52"
-        className="h-full w-full origin-center scale-100 transform object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-      <div className="flex flex-1 flex-col p-5">
-        {item.category ? (
-          <p className="mb-2 inline-flex items-center rounded-full bg-pink-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-pink-700">
-            {item.category === 'program-news'
-              ? 'Program'
-              : item.category === 'scholarship'
-                ? 'Scholar'
-                : item.category === 'conference'
-                  ? 'Conference'
-                  : item.category === 'awards'
-                    ? 'Awards'
-                    : item.category === 'summit'
-                      ? 'Summit'
-                      : item.category}
-          </p>
-        ) : null}
-        <h3 className="text-xl font-extrabold text-blue-950">{item.title}</h3>
-        <p className="mt-2 text-sm leading-6 text-slate-700">{item.excerpt}</p>
-        <div className="mt-4 h-px w-full bg-slate-200" />
-        <p className="mt-3 text-xs font-semibold text-blue-900">
-          {item.author} <span className="text-slate-500"> - </span>{' '}
-          <span className="text-blue-900">{item.date}</span>
-        </p>
-      </div>
-    </Wrapper>
   );
 }

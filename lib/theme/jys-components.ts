@@ -99,7 +99,7 @@ export const jysSectionTheme = {
     mapBackdrop: '',
   },
   recognition: {
-    sectionWrapper: 'relative w-full py-16 sm:py-20',
+    sectionWrapper: 'relative w-full bg-slate-50 py-16 sm:py-20',
     container: 'mx-auto max-w-7xl px-6 lg:px-8',
     subtitle: '-mt-6 mb-8 text-center text-sm text-accent',
     grid: 'grid gap-6 lg:grid-cols-12',

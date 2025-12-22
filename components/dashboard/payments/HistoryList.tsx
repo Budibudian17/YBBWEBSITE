@@ -1,8 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
 import { Clock, XCircle, CheckCircle2 } from 'lucide-react';
-import SmartImage from '@/components/ui/SmartImage';
 
 export type HistoryItem = {
   id: string;
@@ -115,12 +115,15 @@ export default function HistoryList({
               </p>
               {active.details?.proofUrl ? (
                 <div className="mt-2 space-y-2">
-                  <SmartImage
-                    src={active.details.proofUrl}
-                    alt="Payment proof"
-                    wrapperClassName="max-h-72 w-full overflow-hidden rounded-md ring-1 ring-slate-200"
-                    className="h-full w-full object-contain"
-                  />
+                  <div className="relative max-h-72 w-full overflow-hidden rounded-md ring-1 ring-slate-200">
+                    <Image
+                      src={active.details.proofUrl}
+                      alt="Payment proof"
+                      width={800}
+                      height={600}
+                      className="h-auto w-full object-contain"
+                    />
+                  </div>
                   <div className="flex gap-2">
                     <a
                       href={active.details.proofUrl}
