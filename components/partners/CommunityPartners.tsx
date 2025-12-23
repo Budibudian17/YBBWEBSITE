@@ -5,7 +5,7 @@ import { jysSectionTheme } from '@/lib/theme/jys-components';
 // Section: Community Partners — kartu list partner komunitas
 export default function CommunityPartnersSection() {
   return (
-    <section className="px-6 py-12 sm:py-14 md:py-16 lg:px-8">
+    <section className="relative w-full bg-[url('/img/sebelumfooter.png')] bg-cover bg-center px-6 py-12 sm:py-14 md:py-16 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Community Partners"
@@ -31,7 +31,7 @@ export default function CommunityPartnersSection() {
           </a>
           <a
             href="/partners/university-alliance"
-            className="group flex w-[320px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+            className="group flex w-[340px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300 sm:w-[360px]"
           >
             <Image
               src="/img/IYSlogo.png"
@@ -50,7 +50,7 @@ export default function CommunityPartnersSection() {
           </a>
           <a
             href="/partners/social-impact-hub"
-            className="group flex w-[320px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+            className="group flex w-[340px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300 sm:w-[360px]"
           >
             <Image
               src="/img/KYSlogo.png"
@@ -69,7 +69,7 @@ export default function CommunityPartnersSection() {
           </a>
           <a
             href="/partners/media-partners-network"
-            className="group flex w-[320px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+            className="group flex w-[340px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300 sm:w-[360px]"
           >
             <Image
               src="/img/MEYSlogo.png"
@@ -88,7 +88,7 @@ export default function CommunityPartnersSection() {
           </a>
           <a
             href="/partners/startup-incubators"
-            className="group flex w-[320px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+            className="group flex w-[340px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300 sm:w-[360px]"
           >
             <Image
               src="/img/WYSlogo.png"
@@ -107,7 +107,7 @@ export default function CommunityPartnersSection() {
           </a>
           <a
             href="/partners/cultural-exchange-foundation"
-            className="group flex w-[320px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+            className="group flex w-[340px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300 sm:w-[360px]"
           >
             <Image
               src="/img/YAFlogo.png"
