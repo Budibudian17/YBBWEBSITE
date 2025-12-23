@@ -123,11 +123,7 @@ export default function FullyFundedOverviewSection() {
 
               {tab === 'benefits' && (
                 <div className="mt-5 space-y-4 text-[15px] leading-7 text-slate-700 sm:text-base">
-                  <p>
-                    This tab can be used to highlight additional narratives, testimonials, or
-                    comparisons between Fully Funded and Self Funded schemes. You can freely edit
-                    this content to match future program needs.
-                  </p>
+                  <p>WM HILMI FARREL WKWKKWWKKW</p>
                 </div>
               )}
             </div>
