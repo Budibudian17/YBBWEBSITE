@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import Image from 'next/image';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 type Testimonial = {
   name: string;
@@ -173,24 +174,24 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="relative w-full overflow-x-hidden bg-pink-50 py-16 sm:py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className={jysSectionTheme.testimonialsHome.sectionWrapper}>
+      <div className={jysSectionTheme.testimonialsHome.container}>
         <SectionHeader title="Voices of Success: Our Community Speaks" />
-        <p className="-mt-6 mb-10 text-center text-sm text-pink-600">
+        <p className={jysSectionTheme.testimonialsHome.subtitle}>
           Real stories from participants who've experienced transformational results with our
           program
         </p>
 
         {/* Full card dari ujung kanan ke kiri ( animasi geser ) */}
       </div>
-      <div className="space-y-8">
+      <div className={jysSectionTheme.testimonialsHome.rowsWrapper}>
         {rows.map((row, i) => (
-          <div key={i} className="relative overflow-hidden py-3">
+          <div key={i} className={jysSectionTheme.testimonialsHome.rowOuter}>
             {/* fade mask kiri/kanan biar ga keliatan 'mentok' */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-white to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent" />
+            <div className={jysSectionTheme.testimonialsHome.fadeLeft} />
+            <div className={jysSectionTheme.testimonialsHome.fadeRight} />
             <div
-              className={`flex gap-5 whitespace-nowrap sm:gap-6 ${
+              className={`${jysSectionTheme.testimonialsHome.marqueeRowBase} ${
                 row.direction === 'left' ? 'animate-marquee' : 'animate-marquee-reverse'
               }`}
               style={{ ['--duration' as any]: '55s' }}
@@ -198,7 +199,7 @@ export default function Testimonials() {
               {[...row.items, ...row.items].map((t, idx) => (
                 <div
                   key={idx}
-                  className="my-2 inline-flex w-[260px] shrink-0 cursor-pointer flex-col justify-between overflow-hidden rounded-2xl bg-white p-5 text-left shadow-[0_8px_30px_rgba(2,6,23,0.06)] ring-1 ring-slate-100 transition hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(2,6,23,0.08)] sm:w-[300px] md:w-[340px] lg:w-[360px]"
+                  className={jysSectionTheme.testimonialsHome.card}
                   onClick={() => setActive(t)}
                   onKeyDown={e => {
                     if (e.key === 'Enter' || e.key === ' ') {
@@ -209,20 +210,16 @@ export default function Testimonials() {
                   role="button"
                   tabIndex={0}
                 >
-                  <p className="whitespace-normal break-words text-sm italic leading-6 text-slate-700">
-                    “{t.quote}”
-                  </p>
-                  <div className="mt-5 flex items-center justify-between">
+                  <p className={jysSectionTheme.testimonialsHome.quote}>“{t.quote}”</p>
+                  <div className={jysSectionTheme.testimonialsHome.metaRow}>
                     <div>
-                      <p className="flex items-center gap-2 text-sm font-semibold text-blue-950">
-                        <span className="text-base">{t.flag}</span>
+                      <p className={jysSectionTheme.testimonialsHome.nameRow}>
+                        <span className={jysSectionTheme.testimonialsHome.nameFlag}>{t.flag}</span>
                         <span>{t.name}</span>
                       </p>
-                      <p className="text-xs text-slate-500">{t.role}</p>
+                      <p className={jysSectionTheme.testimonialsHome.roleText}>{t.role}</p>
                     </div>
-                    <span className="inline-flex items-center rounded-full bg-pink-600/10 px-2 py-1 text-[10px] font-semibold text-pink-700 ring-1 ring-pink-200">
-                      JYS
-                    </span>
+                    <span className={jysSectionTheme.testimonialsHome.badge}>JYS</span>
                   </div>
                 </div>
               ))}
@@ -234,48 +231,48 @@ export default function Testimonials() {
       {/* Modal Pop Up detail testimoninya */}
       {active && (
         <div
-          className="fixed inset-0 z-50 grid place-items-center bg-black/50 p-4"
+          className={jysSectionTheme.testimonialsHome.modalOverlay}
           role="dialog"
           aria-modal="true"
           onClick={() => setActive(null)}
         >
           <div
-            className="w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-slate-900/10"
+            className={jysSectionTheme.testimonialsHome.modalCard}
             onClick={e => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-slate-200 p-4">
-              <h3 className="text-lg font-extrabold text-blue-950">Testimonial Detail</h3>
+            <div className={jysSectionTheme.testimonialsHome.modalHeader}>
+              <h3 className={jysSectionTheme.testimonialsHome.modalTitle}>Testimonial Detail</h3>
               <button
                 onClick={() => setActive(null)}
-                className="rounded-md bg-slate-100 px-2 py-1 text-sm font-medium text-slate-700 hover:bg-slate-200"
+                className={jysSectionTheme.testimonialsHome.modalCloseButton}
                 aria-label="Close"
               >
                 Close
               </button>
             </div>
-            <div className="grid gap-5 p-5 sm:grid-cols-[96px,1fr]">
-              <div className="aspect-square w-24 overflow-hidden rounded-xl bg-slate-100 ring-1 ring-slate-200">
-                <div className="relative h-full w-full">
+            <div className={jysSectionTheme.testimonialsHome.modalBodyGrid}>
+              <div className={jysSectionTheme.testimonialsHome.modalAvatarWrapper}>
+                <div className={jysSectionTheme.testimonialsHome.modalAvatarInner}>
                   <Image
                     src={active.photo || '/img/jys.png'}
                     alt={active.name}
                     fill
                     sizes="96px"
-                    className="object-cover"
+                    className={jysSectionTheme.testimonialsHome.modalAvatarImg}
                   />
                 </div>
               </div>
               <div>
-                <p className="flex items-center gap-2 text-sm font-semibold text-blue-950">
+                <p className={jysSectionTheme.testimonialsHome.modalMetaNameRow}>
                   <span className="text-base">{active.flag}</span>
                   <span>{active.name}</span>
                 </p>
-                <p className="mt-1 text-xs text-slate-600">
+                <p className={jysSectionTheme.testimonialsHome.modalMetaSub}>
                   {active.country} • {active.role} • {active.year}
                 </p>
               </div>
               <div className="sm:col-span-2">
-                <p className="text-sm leading-7 text-slate-700">“{active.quote}”</p>
+                <p className={jysSectionTheme.testimonialsHome.modalQuote}>“{active.quote}”</p>
               </div>
             </div>
           </div>

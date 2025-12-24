@@ -16,10 +16,10 @@ export default function AboutProgram() {
     <section className={jysSectionTheme.aboutProgram.sectionWrapper}>
       <div className={jysSectionTheme.aboutProgram.blurTop} />
       <div className={jysSectionTheme.aboutProgram.blurBottom} />
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] lg:gap-14">
+      <div className={jysSectionTheme.aboutProgram.container}>
+        <div className={jysSectionTheme.aboutProgram.layoutGrid}>
           {/* Left: Konten dengan Tabs */}
-          <div className="order-2 lg:order-1 lg:pr-4">
+          <div className={jysSectionTheme.aboutProgram.leftCol}>
             <SectionHeader align="left" eyebrow="Program Overview" title="About Our Program" />
 
             {/* Tabs */}
@@ -83,7 +83,7 @@ export default function AboutProgram() {
               )}
             </div>
 
-            <div className="mt-6">
+            <div className={jysSectionTheme.aboutProgram.ctaWrapper}>
               <a
                 href="/apply"
                 className={`${jysSectionTheme.aboutProgram.ctaButton} w-full justify-center`}
@@ -94,37 +94,37 @@ export default function AboutProgram() {
           </div>
 
           {/* Right: Kolase Gambar */}
-          <div className="order-1 lg:order-2">
-            <div className="relative h-full w-full">
-              <div className="grid h-full gap-4 sm:grid-cols-2">
+          <div className={jysSectionTheme.aboutProgram.rightCol}>
+            <div className={jysSectionTheme.aboutProgram.collageWrapper}>
+              <div className={jysSectionTheme.aboutProgram.collageGrid}>
                 {/* Gambar besar kiri */}
-                <div className="relative col-span-1 row-span-2 overflow-hidden rounded-2xl bg-blue-900/5 shadow-[0_8px_30px_rgba(31,41,55,0.12)] ring-1 ring-blue-900/10">
+                <div className={jysSectionTheme.aboutProgram.collageLargeCard}>
                   <Image
                     src={imageMain}
                     alt="Japan Youth Summit main program"
                     fill
                     sizes="(min-width:1024px) 420px, 100vw"
-                    className="object-cover"
+                    className={jysSectionTheme.aboutProgram.collageImage}
                   />
                 </div>
 
                 {/* Dua gambar kecil kanan */}
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white/40 shadow-[0_8px_30px_rgba(31,41,55,0.12)] ring-1 ring-slate-200/80">
+                <div className={jysSectionTheme.aboutProgram.collageSmallCard}>
                   <Image
                     src={imageSecondary}
                     alt="Japan Youth Summit activity"
                     fill
                     sizes="(min-width:1024px) 260px, 50vw"
-                    className="object-cover"
+                    className={jysSectionTheme.aboutProgram.collageImage}
                   />
                 </div>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white/40 shadow-[0_8px_30px_rgba(31,41,55,0.12)] ring-1 ring-slate-200/80">
+                <div className={jysSectionTheme.aboutProgram.collageSmallCard}>
                   <Image
                     src={imageThird}
                     alt="Japan Youth Summit highlight"
                     fill
                     sizes="(min-width:1024px) 260px, 50vw"
-                    className="object-cover"
+                    className={jysSectionTheme.aboutProgram.collageImage}
                   />
                 </div>
               </div>

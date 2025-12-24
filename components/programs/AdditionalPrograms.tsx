@@ -37,46 +37,46 @@ export default function AdditionalPrograms() {
     },
   ];
   return (
-    <section className="px-6 py-12 sm:py-14 md:py-16 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section className={jysSectionTheme.programsAdditional.sectionWrapper}>
+      <div className={jysSectionTheme.programsAdditional.container}>
         <SectionHeader title="Our Additional Programs" />
         <p className={jysSectionTheme.programsAdditional.subtitle}>
           Explore more programs you can join soon
         </p>
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className={jysSectionTheme.programsAdditional.cardsWrapper}>
           {items.map(it => (
             <a
               key={it.title}
               href={it.href || '#'}
-              className="group w-[320px] overflow-hidden rounded-2xl bg-white ring-1 ring-gray-200 transition hover:shadow-md sm:w-[360px]"
+              className={jysSectionTheme.programsAdditional.card}
             >
-              <div className="relative aspect-[16/9] overflow-hidden">
+              <div className={jysSectionTheme.programsAdditional.coverWrapper}>
                 <Image
                   src={it.cover}
                   alt={`${it.title} Cover`}
                   fill
                   sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                  className="object-cover transition group-hover:scale-105"
+                  className={jysSectionTheme.programsAdditional.coverImage}
                 />
-                <div className="absolute left-3 top-3 flex items-center gap-2">
-                  <div className="relative h-8 w-8 overflow-hidden rounded-full ring-1 ring-white/60">
+                <div className={jysSectionTheme.programsAdditional.logoBadgesWrapper}>
+                  <div className={jysSectionTheme.programsAdditional.logoCircle}>
                     <Image
                       src={it.logo}
                       alt={`${it.title} Logo`}
                       fill
                       sizes="32px"
-                      className="bg-white object-contain"
+                      className={jysSectionTheme.programsAdditional.logoImage}
                     />
                   </div>
                 </div>
               </div>
-              <div className="flex items-start justify-between gap-3 p-5">
+              <div className={jysSectionTheme.programsAdditional.cardMetaRow}>
                 <div>
                   <h4 className={jysSectionTheme.programsAdditional.cardTitle}>{it.title}</h4>
-                  <p className="mt-1 text-sm text-gray-600">{it.dates}</p>
+                  <p className={jysSectionTheme.programsAdditional.datesText}>{it.dates}</p>
                 </div>
                 <span className={jysSectionTheme.programsAdditional.arrowCircle}>
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className={jysSectionTheme.programsAdditional.arrowIcon} />
                 </span>
               </div>
             </a>

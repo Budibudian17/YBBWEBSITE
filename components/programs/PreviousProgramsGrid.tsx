@@ -33,8 +33,8 @@ export default function ProgramCarousel() {
   const prev = () => setActive(i => (i - 1 + total) % total);
 
   return (
-    <section className="sm:py-18 relative w-full overflow-hidden px-6 py-16 md:py-20">
-      <div className="mx-auto max-w-7xl">
+    <section className={jysSectionTheme.programsPrevious.sectionWrapper}>
+      <div className={jysSectionTheme.programsPrevious.container}>
         {/* HEADER */}
         <SectionHeader eyebrow="Previous Program" title="Previous Japan Youth Summit Programs" />
         <p className={jysSectionTheme.programsPrevious.subtitle}>
@@ -42,7 +42,7 @@ export default function ProgramCarousel() {
         </p>
 
         {/* CAROUSEL STAGE + ARROWS */}
-        <div className="relative mt-10 flex h-[480px] items-center justify-center">
+        <div className={jysSectionTheme.programsPrevious.stageWrapper}>
           <button
             onClick={prev}
             aria-label="Previous program"
@@ -51,7 +51,7 @@ export default function ProgramCarousel() {
               jysSectionTheme.programsPrevious.arrowButton
             )}
           >
-            <ChevronLeft className="h-5 w-5" />
+            <ChevronLeft className={jysSectionTheme.programsPrevious.chevronIcon} />
           </button>
           <button
             onClick={next}
@@ -61,11 +61,11 @@ export default function ProgramCarousel() {
               jysSectionTheme.programsPrevious.arrowButton
             )}
           >
-            <ChevronRight className="h-5 w-5" />
+            <ChevronRight className={jysSectionTheme.programsPrevious.chevronIcon} />
           </button>
 
           {/* CAROUSEL STAGE */}
-          <div className="relative mx-auto flex h-full w-full max-w-5xl items-center justify-center">
+          <div className={jysSectionTheme.programsPrevious.carouselInner}>
             {programs.map((item, i) => {
               const diff = (i - active + total) % total;
 
@@ -92,26 +92,22 @@ export default function ProgramCarousel() {
               return (
                 <div
                   key={i}
-                  className={clsx(
-                    'absolute transition-all duration-500 ease-in-out',
-                    transform,
-                    opacity
-                  )}
+                  className={clsx(jysSectionTheme.programsPrevious.slideBase, transform, opacity)}
                   style={{ zIndex: z }}
                 >
                   {/* ===== CARD ===== */}
                   <div className={jysSectionTheme.programsPrevious.card}>
-                    <div className="relative h-[220px] w-full">
+                    <div className={jysSectionTheme.programsPrevious.cardImageWrapper}>
                       <Image
                         src={item.image}
                         alt={item.title}
                         fill
                         sizes="(min-width:1024px) 360px, (min-width:640px) 60vw, 100vw"
-                        className="object-cover"
+                        className={jysSectionTheme.programsPrevious.cardImage}
                       />
                     </div>
 
-                    <div className="p-6">
+                    <div className={jysSectionTheme.programsPrevious.cardBody}>
                       <h3 className={jysSectionTheme.programsPrevious.cardTitle}>{item.title}</h3>
                       <p className={jysSectionTheme.programsPrevious.cardDate}>{item.date}</p>
 

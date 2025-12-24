@@ -1,24 +1,25 @@
 import Image from 'next/image';
 import { Gem, Trophy, Medal } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 // Section: Sponsor Tiers — kartu detail
 export default function SponsorTiersSection() {
   return (
-    <section className="px-6 py-12 sm:py-14 md:py-16 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section className={jysSectionTheme.partnersSponsorTiers.sectionWrapper}>
+      <div className={jysSectionTheme.partnersSponsorTiers.container}>
         <SectionHeader eyebrow="Our Sponsors" title="Sponsor Tiers" />
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className={jysSectionTheme.partnersSponsorTiers.tiersGrid}>
           {/* Detail Diamond */}
           <a
             href="/partners/global-innovation-foundation"
-            className="rounded-2xl bg-white p-6 shadow-[0_10px_40px_rgba(2,6,23,0.08)] ring-2 ring-pink-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+            className={jysSectionTheme.partnersSponsorTiers.diamondCard}
           >
             <div className="mb-3 flex items-center gap-2">
-              <span className="inline-grid h-9 w-9 place-items-center rounded-full bg-pink-600 text-white">
+              <span className={jysSectionTheme.partnersSponsorTiers.diamondIconCircle}>
                 <Gem className="h-5 w-5" />
               </span>
-              <span className="text-xs font-semibold uppercase tracking-wide text-pink-600">
+              <span className={jysSectionTheme.partnersSponsorTiers.diamondLabel}>
                 Diamond Sponsor
               </span>
             </div>
@@ -29,34 +30,34 @@ export default function SponsorTiersSection() {
                 width={36}
                 height={36}
                 sizes="36px"
-                className="h-9 w-9 rounded bg-white object-contain p-1 ring-1 ring-slate-200"
+                className={jysSectionTheme.partnersSponsorTiers.diamondLogoImg}
               />
-              <h3 className="text-lg font-extrabold text-blue-900">Global Innovation Foundation</h3>
+              <h3 className={jysSectionTheme.partnersSponsorTiers.diamondTitle}>
+                Global Innovation Foundation
+              </h3>
             </div>
-            <p className="mt-1 text-xs text-slate-600">Partner since 2020</p>
-            <p className="mt-2 text-sm text-slate-700">
+            <p className={jysSectionTheme.partnersSponsorTiers.mutedMeta}>Partner since 2020</p>
+            <p className={jysSectionTheme.partnersSponsorTiers.bodyText}>
               Contribution: Primary Program Funding & Strategic Partnership
             </p>
-            <p className="mt-3 text-sm text-slate-700">
+            <p className={jysSectionTheme.partnersSponsorTiers.bodyText}>
               Leading global foundation supporting youth innovation and entrepreneurship worldwide
               through comprehensive funding and mentorship programs.
             </p>
           </a>
 
           {/* Detail Gold */}
-          <div className="rounded-2xl bg-white p-6 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-amber-200/60">
+          <div className={jysSectionTheme.partnersSponsorTiers.goldCard}>
             <div className="mb-3 flex items-center gap-2">
-              <span className="inline-grid h-9 w-9 place-items-center rounded-full bg-amber-500/20 text-amber-600 ring-1 ring-amber-200">
+              <span className={jysSectionTheme.partnersSponsorTiers.goldIconCircle}>
                 <Trophy className="h-5 w-5" />
               </span>
-              <span className="text-xs font-semibold uppercase tracking-wide text-amber-700">
-                Gold Sponsor
-              </span>
+              <span className={jysSectionTheme.partnersSponsorTiers.goldLabel}>Gold Sponsor</span>
             </div>
-            <div className="space-y-4">
+            <div className={jysSectionTheme.partnersSponsorTiers.goldOrgWrapper}>
               <a
                 href="/partners/future-leaders-institute"
-                className="block rounded-xl border border-amber-200 bg-amber-50/30 p-4 transition hover:-translate-y-0.5 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-300"
+                className={jysSectionTheme.partnersSponsorTiers.goldOrgCard}
               >
                 <div className="flex items-center gap-3">
                   <Image
@@ -65,18 +66,22 @@ export default function SponsorTiersSection() {
                     width={32}
                     height={32}
                     sizes="32px"
-                    className="h-8 w-8 rounded bg-white object-contain p-1 ring-1 ring-amber-200"
+                    className={jysSectionTheme.partnersSponsorTiers.goldLogoImg}
                   />
-                  <h3 className="text-base font-extrabold text-blue-900">
+                  <h3 className={jysSectionTheme.partnersSponsorTiers.goldOrgTitle}>
                     Future Leaders Institute
                   </h3>
                 </div>
-                <p className="text-xs text-slate-600">Partner since 2021</p>
-                <p className="mt-1 text-sm text-slate-700">Scholarship Fund & Training Programs</p>
+                <p className={jysSectionTheme.partnersSponsorTiers.goldOrgMeta}>
+                  Partner since 2021
+                </p>
+                <p className={jysSectionTheme.partnersSponsorTiers.goldOrgBody}>
+                  Scholarship Fund & Training Programs
+                </p>
               </a>
               <a
                 href="/partners/international-development-bank"
-                className="block rounded-xl border border-amber-200 bg-amber-50/30 p-4 transition hover:-translate-y-0.5 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-300"
+                className={jysSectionTheme.partnersSponsorTiers.goldOrgCard}
               >
                 <div className="flex items-center gap-3">
                   <Image
@@ -85,14 +90,16 @@ export default function SponsorTiersSection() {
                     width={32}
                     height={32}
                     sizes="32px"
-                    className="h-8 w-8 rounded bg-white object-contain p-1 ring-1 ring-amber-200"
+                    className={jysSectionTheme.partnersSponsorTiers.goldLogoImg}
                   />
-                  <h3 className="text-base font-extrabold text-blue-900">
+                  <h3 className={jysSectionTheme.partnersSponsorTiers.goldOrgTitle}>
                     International Development Bank
                   </h3>
                 </div>
-                <p className="text-xs text-slate-600">Partner since 2021</p>
-                <p className="mt-1 text-sm text-slate-700">
+                <p className={jysSectionTheme.partnersSponsorTiers.goldOrgMeta}>
+                  Partner since 2021
+                </p>
+                <p className={jysSectionTheme.partnersSponsorTiers.goldOrgBody}>
                   Workshop Facilities & Technology Infrastructure
                 </p>
               </a>
@@ -100,19 +107,19 @@ export default function SponsorTiersSection() {
           </div>
 
           {/* Detail Silver */}
-          <div className="rounded-2xl bg-white p-6 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200">
+          <div className={jysSectionTheme.partnersSponsorTiers.silverCard}>
             <div className="mb-3 flex items-center gap-2">
-              <span className="inline-grid h-9 w-9 place-items-center rounded-full bg-slate-100 text-slate-600 ring-1 ring-slate-200">
+              <span className={jysSectionTheme.partnersSponsorTiers.silverIconCircle}>
                 <Medal className="h-5 w-5" />
               </span>
-              <span className="text-xs font-semibold uppercase tracking-wide text-slate-700">
+              <span className={jysSectionTheme.partnersSponsorTiers.silverLabel}>
                 Silver Sponsors
               </span>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className={jysSectionTheme.partnersSponsorTiers.silverGrid}>
               <a
                 href="/partners/techcorp-solutions"
-                className="rounded-xl border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-300"
+                className={jysSectionTheme.partnersSponsorTiers.silverOrgCard}
               >
                 <div className="flex items-center gap-3">
                   <Image
@@ -121,15 +128,19 @@ export default function SponsorTiersSection() {
                     width={28}
                     height={28}
                     sizes="28px"
-                    className="h-7 w-7 rounded bg-white object-contain p-1 ring-1 ring-slate-200"
+                    className={jysSectionTheme.partnersSponsorTiers.silverLogoImg}
                   />
-                  <p className="font-semibold text-blue-900">TechCorp Solutions</p>
+                  <p className={jysSectionTheme.partnersSponsorTiers.silverOrgName}>
+                    TechCorp Solutions
+                  </p>
                 </div>
-                <p className="text-sm text-slate-700">Technology Support</p>
+                <p className={jysSectionTheme.partnersSponsorTiers.silverOrgDesc}>
+                  Technology Support
+                </p>
               </a>
               <a
                 href="/partners/education-partners-ltd"
-                className="rounded-xl border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-300"
+                className={jysSectionTheme.partnersSponsorTiers.silverOrgCard}
               >
                 <div className="flex items-center gap-3">
                   <Image
@@ -138,15 +149,19 @@ export default function SponsorTiersSection() {
                     width={28}
                     height={28}
                     sizes="28px"
-                    className="h-7 w-7 rounded bg-white object-contain p-1 ring-1 ring-slate-200"
+                    className={jysSectionTheme.partnersSponsorTiers.silverLogoImg}
                   />
-                  <p className="font-semibold text-blue-900">Education Partners Ltd</p>
+                  <p className={jysSectionTheme.partnersSponsorTiers.silverOrgName}>
+                    Education Partners Ltd
+                  </p>
                 </div>
-                <p className="text-sm text-slate-700">Educational Resources</p>
+                <p className={jysSectionTheme.partnersSponsorTiers.silverOrgDesc}>
+                  Educational Resources
+                </p>
               </a>
               <a
                 href="/partners/youth-development-network"
-                className="rounded-xl border border-slate-200 bg-slate-50 p-4 transition hover:-translate-y-0.5 hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-300 sm:col-span-2"
+                className={jysSectionTheme.partnersSponsorTiers.silverOrgCardWide}
               >
                 <div className="flex items-center gap-3">
                   <Image
@@ -155,29 +170,35 @@ export default function SponsorTiersSection() {
                     width={28}
                     height={28}
                     sizes="28px"
-                    className="h-7 w-7 rounded bg-white object-contain p-1 ring-1 ring-slate-200"
+                    className={jysSectionTheme.partnersSponsorTiers.silverLogoImg}
                   />
-                  <p className="font-semibold text-blue-900">Youth Development Network</p>
+                  <p className={jysSectionTheme.partnersSponsorTiers.silverOrgName}>
+                    Youth Development Network
+                  </p>
                 </div>
-                <p className="text-sm text-slate-700">Networking & Mentorship</p>
+                <p className={jysSectionTheme.partnersSponsorTiers.silverOrgDesc}>
+                  Networking & Mentorship
+                </p>
               </a>
             </div>
           </div>
         </div>
 
         {/* Other sponsors grid */}
-        <div className="mt-14 rounded-2xl bg-white/90 p-6 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200">
-          <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-            <h3 className="text-lg font-extrabold text-blue-900">and Our Other Sponsor</h3>
-            <p className="text-sm text-slate-600">
+        <div className={jysSectionTheme.partnersSponsorTiers.othersCard}>
+          <div className={jysSectionTheme.partnersSponsorTiers.othersHeader}>
+            <h3 className={jysSectionTheme.partnersSponsorTiers.othersTitle}>
+              and Our Other Sponsor
+            </h3>
+            <p className={jysSectionTheme.partnersSponsorTiers.othersSubtitle}>
               Brands and institutions that help make this program possible
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+          <div className={jysSectionTheme.partnersSponsorTiers.othersGrid}>
             {/* Logo items - using existing assets to simulate real sponsors */}
             <a
               href="/partners/iys-global"
-              className="flex items-center justify-center rounded-xl bg-white p-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className={jysSectionTheme.partnersSponsorTiers.othersLogoCard}
             >
               <Image
                 src="/img/IYSlogo.png"
@@ -185,12 +206,12 @@ export default function SponsorTiersSection() {
                 width={96}
                 height={48}
                 sizes="96px"
-                className="h-12 w-auto object-contain"
+                className={jysSectionTheme.partnersSponsorTiers.othersLogoImg}
               />
             </a>
             <a
               href="/partners/kys-education"
-              className="flex items-center justify-center rounded-xl bg-white p-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className={jysSectionTheme.partnersSponsorTiers.othersLogoCard}
             >
               <Image
                 src="/img/KYSlogo.png"
@@ -198,12 +219,12 @@ export default function SponsorTiersSection() {
                 width={96}
                 height={48}
                 sizes="96px"
-                className="h-12 w-auto object-contain"
+                className={jysSectionTheme.partnersSponsorTiers.othersLogoImg}
               />
             </a>
             <a
               href="/partners/meys-media-group"
-              className="flex items-center justify-center rounded-xl bg-white p-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className={jysSectionTheme.partnersSponsorTiers.othersLogoCard}
             >
               <Image
                 src="/img/MEYSlogo.png"
@@ -211,12 +232,12 @@ export default function SponsorTiersSection() {
                 width={96}
                 height={48}
                 sizes="96px"
-                className="h-12 w-auto object-contain"
+                className={jysSectionTheme.partnersSponsorTiers.othersLogoImg}
               />
             </a>
             <a
               href="/partners/wys-technology"
-              className="flex items-center justify-center rounded-xl bg-white p-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className={jysSectionTheme.partnersSponsorTiers.othersLogoCard}
             >
               <Image
                 src="/img/WYSlogo.png"
@@ -224,12 +245,12 @@ export default function SponsorTiersSection() {
                 width={96}
                 height={48}
                 sizes="96px"
-                className="h-12 w-auto object-contain"
+                className={jysSectionTheme.partnersSponsorTiers.othersLogoImg}
               />
             </a>
             <a
               href="/partners/yaf-foundation"
-              className="flex items-center justify-center rounded-xl bg-white p-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className={jysSectionTheme.partnersSponsorTiers.othersLogoCard}
             >
               <Image
                 src="/img/YAFlogo.png"
@@ -237,12 +258,12 @@ export default function SponsorTiersSection() {
                 width={96}
                 height={48}
                 sizes="96px"
-                className="h-12 w-auto object-contain"
+                className={jysSectionTheme.partnersSponsorTiers.othersLogoImg}
               />
             </a>
             <a
               href="/partners/youth-beyond-borders-network"
-              className="flex items-center justify-center rounded-xl bg-white p-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className={jysSectionTheme.partnersSponsorTiers.othersLogoCard}
             >
               <Image
                 src="/img/jyslogosolo.png"
@@ -250,12 +271,12 @@ export default function SponsorTiersSection() {
                 width={96}
                 height={48}
                 sizes="96px"
-                className="h-12 w-auto object-contain"
+                className={jysSectionTheme.partnersSponsorTiers.othersLogoImg}
               />
             </a>
             <a
               href="/partners/iys-global-partners"
-              className="flex items-center justify-center rounded-xl bg-white p-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className={jysSectionTheme.partnersSponsorTiers.othersLogoCard}
             >
               <Image
                 src="/img/IYSlogo.png"
@@ -263,12 +284,12 @@ export default function SponsorTiersSection() {
                 width={96}
                 height={48}
                 sizes="96px"
-                className="h-12 w-auto object-contain"
+                className={jysSectionTheme.partnersSponsorTiers.othersLogoImg}
               />
             </a>
             <a
               href="/partners/kys-learning-hub"
-              className="flex items-center justify-center rounded-xl bg-white p-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className={jysSectionTheme.partnersSponsorTiers.othersLogoCard}
             >
               <Image
                 src="/img/KYSlogo.png"
@@ -276,12 +297,12 @@ export default function SponsorTiersSection() {
                 width={96}
                 height={48}
                 sizes="96px"
-                className="h-12 w-auto object-contain"
+                className={jysSectionTheme.partnersSponsorTiers.othersLogoImg}
               />
             </a>
             <a
               href="/partners/meys-broadcasting"
-              className="flex items-center justify-center rounded-xl bg-white p-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className={jysSectionTheme.partnersSponsorTiers.othersLogoCard}
             >
               <Image
                 src="/img/MEYSlogo.png"
@@ -289,12 +310,12 @@ export default function SponsorTiersSection() {
                 width={96}
                 height={48}
                 sizes="96px"
-                className="h-12 w-auto object-contain"
+                className={jysSectionTheme.partnersSponsorTiers.othersLogoImg}
               />
             </a>
             <a
               href="/partners/wys-digital-studio"
-              className="flex items-center justify-center rounded-xl bg-white p-4 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(15,23,42,0.18)] focus:outline-none focus:ring-2 focus:ring-pink-300"
+              className={jysSectionTheme.partnersSponsorTiers.othersLogoCard}
             >
               <Image
                 src="/img/WYSlogo.png"
@@ -302,7 +323,7 @@ export default function SponsorTiersSection() {
                 width={96}
                 height={48}
                 sizes="96px"
-                className="h-12 w-auto object-contain"
+                className={jysSectionTheme.partnersSponsorTiers.othersLogoImg}
               />
             </a>
           </div>

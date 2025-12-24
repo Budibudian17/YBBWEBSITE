@@ -12,13 +12,13 @@ export default function ProgramFAQ({ groups }: { groups: { label: string; faqs: 
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#eef5ff] px-6 py-12 sm:py-14 md:py-16 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section className={jysSectionTheme.programFAQ.sectionWrapper}>
+      <div className={jysSectionTheme.programFAQ.container}>
         <SectionHeader eyebrow="FAQ" title="Frequently Asked Questions" align="center" />
 
         {/* Tabs */}
-        <div className="mx-auto mt-2 w-full overflow-hidden rounded-2xl border border-blue-100 bg-white">
-          <div className="grid grid-cols-3">
+        <div className={jysSectionTheme.programFAQ.tabsCard}>
+          <div className={jysSectionTheme.programFAQ.tabsGrid}>
             {groups.map((g, i) => (
               <button
                 key={g.label}
@@ -32,14 +32,14 @@ export default function ProgramFAQ({ groups }: { groups: { label: string; faqs: 
                 }`}
                 aria-current={i === active}
               >
-                <span className="inline-flex items-center justify-center gap-2">
+                <span className={jysSectionTheme.programFAQ.tabLabelInner}>
                   <HelpCircle className={jysSectionTheme.programFAQ.tabLabelIcon} />
                   <span>{g.label}</span>
                 </span>
                 {i === active ? (
                   <span className={jysSectionTheme.programFAQ.tabActiveUnderline} />
                 ) : (
-                  <span className="absolute inset-y-3 right-0 hidden w-px bg-blue-100 last:hidden sm:block" />
+                  <span className={jysSectionTheme.programFAQ.tabDivider} />
                 )}
               </button>
             ))}
@@ -47,25 +47,27 @@ export default function ProgramFAQ({ groups }: { groups: { label: string; faqs: 
         </div>
 
         {/* Accordions */}
-        <div className="mt-6 space-y-3">
+        <div className={jysSectionTheme.programFAQ.faqListWrapper}>
           {groups[active]?.faqs.map((item, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <div key={idx} className="overflow-hidden rounded-2xl bg-white ring-1 ring-gray-200">
+              <div key={idx} className={jysSectionTheme.programFAQ.faqCard}>
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left"
+                  className={jysSectionTheme.programFAQ.faqHeaderButton}
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base font-extrabold text-blue-950">{item.q}</span>
+                  <span className={jysSectionTheme.programFAQ.faqQuestion}>{item.q}</span>
                   <ChevronDown
-                    className={`h-5 w-5 text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    className={`${jysSectionTheme.programFAQ.faqChevron} ${
+                      isOpen ? 'rotate-180' : ''
+                    }`}
                   />
                 </button>
                 {isOpen ? (
-                  <div className="px-5 pb-5 pt-0">
-                    <p className="text-sm leading-6 text-slate-700">{item.a}</p>
+                  <div className={jysSectionTheme.programFAQ.faqBody}>
+                    <p className={jysSectionTheme.programFAQ.faqAnswer}>{item.a}</p>
                   </div>
                 ) : null}
               </div>

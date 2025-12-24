@@ -5,13 +5,13 @@ import { jysSectionTheme } from '@/lib/theme/jys-components';
 // Section: Community Partners — kartu list partner komunitas
 export default function CommunityPartnersSection() {
   return (
-    <section className="relative w-full bg-[url('/img/sebelumfooter.png')] bg-cover bg-center px-6 py-12 sm:py-14 md:py-16 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section className={jysSectionTheme.partnersCommunity.sectionWrapper}>
+      <div className={jysSectionTheme.partnersCommunity.container}>
         <SectionHeader
           eyebrow="Community Partners"
           title="Organizations providing in-kind support and collaboration"
         />
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className={jysSectionTheme.partnersCommunity.listWrapper}>
           <a
             href="/partners/local-youth-council"
             className={jysSectionTheme.partnersCommunity.card}
@@ -22,16 +22,16 @@ export default function CommunityPartnersSection() {
               width={48}
               height={48}
               sizes="48px"
-              className="h-12 w-12 rounded bg-white object-contain p-1.5 ring-1 ring-slate-200"
+              className={jysSectionTheme.partnersCommunity.logoImg}
             />
             <div>
-              <p className="font-extrabold text-blue-900">Local Youth Council</p>
+              <p className={jysSectionTheme.partnersCommunity.orgName}>Local Youth Council</p>
               <span className={jysSectionTheme.partnersCommunity.pinkChip}>Community Partner</span>
             </div>
           </a>
           <a
             href="/partners/university-alliance"
-            className="group flex w-[340px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300 sm:w-[360px]"
+            className={jysSectionTheme.partnersCommunity.card}
           >
             <Image
               src="/img/IYSlogo.png"
@@ -39,37 +39,34 @@ export default function CommunityPartnersSection() {
               width={48}
               height={48}
               sizes="48px"
-              className="h-12 w-12 rounded bg-white object-contain p-1.5 ring-1 ring-slate-200"
+              className={jysSectionTheme.partnersCommunity.logoImg}
             />
             <div>
-              <p className="font-extrabold text-blue-900">University Alliance</p>
-              <span className="mt-1 inline-block rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-semibold text-blue-700 ring-1 ring-blue-200">
+              <p className={jysSectionTheme.partnersCommunity.orgName}>University Alliance</p>
+              <span className={jysSectionTheme.partnersCommunity.academicChip}>
                 Academic Partner
               </span>
             </div>
           </a>
-          <a
-            href="/partners/social-impact-hub"
-            className="group flex w-[340px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300 sm:w-[360px]"
-          >
+          <a href="/partners/social-impact-hub" className={jysSectionTheme.partnersCommunity.card}>
             <Image
               src="/img/KYSlogo.png"
               alt="Social Impact Hub logo"
               width={48}
               height={48}
               sizes="48px"
-              className="h-12 w-12 rounded bg-white object-contain p-1.5 ring-1 ring-slate-200"
+              className={jysSectionTheme.partnersCommunity.logoImg}
             />
             <div>
-              <p className="font-extrabold text-blue-900">Social Impact Hub</p>
-              <span className="mt-1 inline-block rounded-full bg-fuchsia-50 px-2.5 py-0.5 text-xs font-semibold text-fuchsia-700 ring-1 ring-fuchsia-200">
+              <p className={jysSectionTheme.partnersCommunity.orgName}>Social Impact Hub</p>
+              <span className={jysSectionTheme.partnersCommunity.innovationChip}>
                 Innovation Partner
               </span>
             </div>
           </a>
           <a
             href="/partners/media-partners-network"
-            className="group flex w-[340px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300 sm:w-[360px]"
+            className={jysSectionTheme.partnersCommunity.card}
           >
             <Image
               src="/img/MEYSlogo.png"
@@ -77,37 +74,32 @@ export default function CommunityPartnersSection() {
               width={48}
               height={48}
               sizes="48px"
-              className="h-12 w-12 rounded bg-white object-contain p-1.5 ring-1 ring-slate-200"
+              className={jysSectionTheme.partnersCommunity.logoImg}
             />
             <div>
-              <p className="font-extrabold text-blue-900">Media Partners Network</p>
-              <span className="mt-1 inline-block rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-700 ring-1 ring-amber-200">
-                Media Partner
-              </span>
+              <p className={jysSectionTheme.partnersCommunity.orgName}>Media Partners Network</p>
+              <span className={jysSectionTheme.partnersCommunity.mediaChip}>Media Partner</span>
             </div>
           </a>
-          <a
-            href="/partners/startup-incubators"
-            className="group flex w-[340px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300 sm:w-[360px]"
-          >
+          <a href="/partners/startup-incubators" className={jysSectionTheme.partnersCommunity.card}>
             <Image
               src="/img/WYSlogo.png"
               alt="Startup Incubators logo"
               width={48}
               height={48}
               sizes="48px"
-              className="h-12 w-12 rounded bg-white object-contain p-1.5 ring-1 ring-slate-200"
+              className={jysSectionTheme.partnersCommunity.logoImg}
             />
             <div>
-              <p className="font-extrabold text-blue-900">Startup Incubators</p>
-              <span className="mt-1 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-200">
+              <p className={jysSectionTheme.partnersCommunity.orgName}>Startup Incubators</p>
+              <span className={jysSectionTheme.partnersCommunity.businessChip}>
                 Business Partner
               </span>
             </div>
           </a>
           <a
             href="/partners/cultural-exchange-foundation"
-            className="group flex w-[340px] items-start gap-4 rounded-2xl bg-white p-5 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-[0_16px_60px_rgba(2,6,23,0.12)] focus:outline-none focus:ring-2 focus:ring-pink-300 sm:w-[360px]"
+            className={jysSectionTheme.partnersCommunity.card}
           >
             <Image
               src="/img/YAFlogo.png"
@@ -115,11 +107,13 @@ export default function CommunityPartnersSection() {
               width={48}
               height={48}
               sizes="48px"
-              className="h-12 w-12 rounded bg-white object-contain p-1.5 ring-1 ring-slate-200"
+              className={jysSectionTheme.partnersCommunity.logoImg}
             />
             <div>
-              <p className="font-extrabold text-blue-900">Cultural Exchange Foundation</p>
-              <span className="mt-1 inline-block rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-indigo-700 ring-1 ring-indigo-200">
+              <p className={jysSectionTheme.partnersCommunity.orgName}>
+                Cultural Exchange Foundation
+              </p>
+              <span className={jysSectionTheme.partnersCommunity.culturalChip}>
                 Cultural Partner
               </span>
             </div>

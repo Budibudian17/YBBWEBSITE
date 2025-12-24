@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import Image from 'next/image';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 export default function PhotoGallery({ mode = 'page' }: { mode?: 'home' | 'page' }) {
   const [selected, setSelected] = useState<number | null>(null);
   const [visible, setVisible] = useState<number>(12);
@@ -34,32 +35,29 @@ export default function PhotoGallery({ mode = 'page' }: { mode?: 'home' | 'page'
   ];
 
   return (
-    <section className="relative w-full py-12 sm:py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className={jysSectionTheme.photoGallery.sectionWrapper}>
+      <div className={jysSectionTheme.photoGallery.container}>
         <SectionHeader title="Photo Gallery" />
-        <p className="-mt-6 mb-8 text-center text-sm text-pink-600">
+        <p className={jysSectionTheme.photoGallery.subtitle}>
           Highlights from the Japan Youth Summit program
         </p>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-5 md:gap-6 lg:grid-cols-4">
+        <div className={jysSectionTheme.photoGallery.grid}>
           {photos.slice(0, visible).map((p, idx) => (
-            <div
-              key={`${p.src}-${idx}`}
-              className="group overflow-hidden rounded-2xl bg-slate-100 ring-1 ring-slate-200"
-            >
+            <div key={`${p.src}-${idx}`} className={jysSectionTheme.photoGallery.itemWrapper}>
               <button
                 type="button"
                 onClick={() => setSelected(idx)}
-                className="block aspect-[16/10] w-full cursor-zoom-in overflow-hidden"
+                className={jysSectionTheme.photoGallery.itemButton}
                 aria-label="Open photo"
               >
-                <span className="relative block h-full w-full">
+                <span className={jysSectionTheme.photoGallery.itemImageWrapper}>
                   <Image
                     src={p.src}
                     alt={p.caption}
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 50vw"
-                    className="origin-center scale-100 transform object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                    className={jysSectionTheme.photoGallery.itemImage}
                   />
                 </span>
               </button>
@@ -69,34 +67,34 @@ export default function PhotoGallery({ mode = 'page' }: { mode?: 'home' | 'page'
 
         {selected !== null && (
           <div
-            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4"
+            className={jysSectionTheme.photoGallery.modalOverlay}
             role="dialog"
             aria-modal="true"
             onClick={() => setSelected(null)}
           >
             <div
-              className="relative max-h-[90vh] w-full max-w-5xl"
+              className={jysSectionTheme.photoGallery.modalCard}
               onClick={e => e.stopPropagation()}
             >
               <button
                 type="button"
                 onClick={() => setSelected(null)}
-                className="absolute -right-3 -top-3 z-[61] inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-slate-800 shadow ring-1 ring-slate-200 hover:bg-white"
+                className={jysSectionTheme.photoGallery.modalCloseButton}
                 aria-label="Close"
               >
                 <X className="h-5 w-5" />
               </button>
-              <div className="relative w-full">
+              <div className={jysSectionTheme.photoGallery.modalImageWrapper}>
                 <Image
                   src={photos[selected].src}
                   alt={photos[selected].caption}
                   width={1920}
                   height={1080}
                   sizes="100vw"
-                  className="max-h-[80vh] w-full rounded-xl object-contain"
+                  className={jysSectionTheme.photoGallery.modalImage}
                 />
               </div>
-              <div className="mt-3 text-center text-sm font-medium text-white/90">
+              <div className={jysSectionTheme.photoGallery.modalCaption}>
                 {photos[selected].caption}
               </div>
             </div>
@@ -105,10 +103,7 @@ export default function PhotoGallery({ mode = 'page' }: { mode?: 'home' | 'page'
 
         {mode === 'home' ? (
           <div className="mt-8 flex justify-center">
-            <a
-              href="/programs/gallery"
-              className="inline-flex items-center justify-center rounded-md bg-pink-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"
-            >
+            <a href="/programs/gallery" className={jysSectionTheme.photoGallery.homeCtaButton}>
               See All Photos
             </a>
           </div>
@@ -118,7 +113,7 @@ export default function PhotoGallery({ mode = 'page' }: { mode?: 'home' | 'page'
               <button
                 type="button"
                 onClick={() => setVisible(v => Math.min(v + 8, photos.length))}
-                className="inline-flex items-center justify-center rounded-md bg-pink-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"
+                className={jysSectionTheme.photoGallery.loadMoreButton}
               >
                 Load More Photos
               </button>

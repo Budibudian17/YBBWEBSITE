@@ -1,4 +1,5 @@
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 interface ScheduleItem {
   dateRange: string;
@@ -81,65 +82,65 @@ const SCHEDULES: ScheduleItem[] = [
 function StatusBadge({ status }: { status: ScheduleItem['status'] }) {
   if (status === 'active') {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 ring-1 ring-emerald-100">
-        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Active
+      <span className={jysSectionTheme.programsSchedules.statusActive}>
+        <span className={jysSectionTheme.programsSchedules.statusActiveDot} /> Active
       </span>
     );
   }
   if (status === 'upcoming') {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-100">
-        <span className="h-1.5 w-1.5 rounded-full bg-amber-500" /> Upcoming
+      <span className={jysSectionTheme.programsSchedules.statusUpcoming}>
+        <span className={jysSectionTheme.programsSchedules.statusUpcomingDot} /> Upcoming
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 ring-1 ring-slate-200">
-      <span className="h-1.5 w-1.5 rounded-full bg-slate-400" /> Closed
+    <span className={jysSectionTheme.programsSchedules.statusClosed}>
+      <span className={jysSectionTheme.programsSchedules.statusClosedDot} /> Closed
     </span>
   );
 }
 
 export default function ProgramSchedules() {
   return (
-    <section className="relative w-full bg-white py-10 sm:py-14 lg:py-16">
-      <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
+    <section className={jysSectionTheme.programsSchedules.sectionWrapper}>
+      <div className={jysSectionTheme.programsSchedules.container}>
         <SectionHeader
           eyebrow="Program Schedules"
           title="Key dates and important deadlines"
           align="center"
         />
 
-        <div className="mt-8 overflow-hidden rounded-3xl bg-white shadow-[0_18px_50px_rgba(15,23,42,0.18)] ring-1 ring-slate-200/80">
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-slate-200 text-sm">
-              <thead className="bg-pink-50">
-                <tr className="text-left text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  <th scope="col" className="px-5 py-3 sm:px-6">
+        <div className={jysSectionTheme.programsSchedules.tableWrapper}>
+          <div className={jysSectionTheme.programsSchedules.tableInner}>
+            <table className={jysSectionTheme.programsSchedules.table}>
+              <thead className={jysSectionTheme.programsSchedules.thead}>
+                <tr className={jysSectionTheme.programsSchedules.headerRow}>
+                  <th scope="col" className={jysSectionTheme.programsSchedules.headerCell}>
                     Date Range
                   </th>
-                  <th scope="col" className="px-5 py-3 sm:px-6">
+                  <th scope="col" className={jysSectionTheme.programsSchedules.headerCell}>
                     Status
                   </th>
-                  <th scope="col" className="px-5 py-3 sm:px-6">
+                  <th scope="col" className={jysSectionTheme.programsSchedules.headerCell}>
                     Schedule Name
                   </th>
-                  <th scope="col" className="px-5 py-3 sm:px-6">
+                  <th scope="col" className={jysSectionTheme.programsSchedules.headerCell}>
                     Description
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 bg-white">
+              <tbody className={jysSectionTheme.programsSchedules.body}>
                 {SCHEDULES.map(row => (
-                  <tr key={row.name} className="align-top text-[13px] text-slate-800">
-                    <td className="whitespace-nowrap px-5 py-4 text-slate-700 sm:px-6">
-                      {row.dateRange}
-                    </td>
-                    <td className="px-5 py-4 sm:px-6">
+                  <tr key={row.name} className={jysSectionTheme.programsSchedules.row}>
+                    <td className={jysSectionTheme.programsSchedules.cellDate}>{row.dateRange}</td>
+                    <td className={jysSectionTheme.programsSchedules.cellStatus}>
                       <StatusBadge status={row.status} />
                     </td>
-                    <td className="px-5 py-4 font-semibold text-blue-950 sm:px-6">{row.name}</td>
-                    <td className="px-5 py-4 text-slate-600 sm:px-6">{row.description}</td>
+                    <td className={jysSectionTheme.programsSchedules.cellName}>{row.name}</td>
+                    <td className={jysSectionTheme.programsSchedules.cellDesc}>
+                      {row.description}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -147,10 +148,10 @@ export default function ProgramSchedules() {
           </div>
         </div>
 
-        <p className="mx-auto mt-4 max-w-3xl text-center text-xs text-slate-600 sm:mt-5 sm:text-sm">
-          <span className="font-semibold text-pink-700">Important:</span> All dates and deadlines
-          are subject to change. Please check this page regularly for the most up-to-date
-          information.
+        <p className={jysSectionTheme.programsSchedules.note}>
+          <span className={jysSectionTheme.programsSchedules.noteEmphasis}>Important:</span> All
+          dates and deadlines are subject to change. Please check this page regularly for the most
+          up-to-date information.
         </p>
       </div>
     </section>

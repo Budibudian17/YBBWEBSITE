@@ -1,56 +1,56 @@
 import Image from 'next/image';
 import { CreditCard, Globe2 } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 export default function FullyFundedPaymentMethodsSection() {
   return (
-    <section className="py-14 sm:py-16 md:py-20">
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+    <section className={jysSectionTheme.applyPaymentMethods.sectionWrapper}>
+      <div className={jysSectionTheme.applyPaymentMethods.container}>
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <div className={jysSectionTheme.applyPaymentMethods.headerWrapper}>
           <SectionHeader
             eyebrow="Payment Methods"
             title="Make payment with our supported methods of payment."
           />
-          <p className="mx-auto -mt-4 text-sm leading-relaxed text-slate-700 sm:text-base">
+          <p className={jysSectionTheme.applyPaymentMethods.headerSubtitle}>
             Choose the most convenient option based on your location. Payment details will also be
             provided in your official registration guideline.
           </p>
         </div>
 
-        <div className="mt-8 grid gap-8 md:grid-cols-2">
+        <div className={jysSectionTheme.applyPaymentMethods.cardsGrid}>
           {/* Payment for Indonesia Participants */}
-          <div className="flex h-full flex-col rounded-3xl bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.14)] ring-1 ring-slate-200/80">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-pink-50">
-                <CreditCard className="h-4 w-4 text-pink-600" />
+          <div className={jysSectionTheme.applyPaymentMethods.bankCard}>
+            <div className={jysSectionTheme.applyPaymentMethods.bankHeaderRow}>
+              <div className={jysSectionTheme.applyPaymentMethods.bankIconCircle}>
+                <CreditCard className={jysSectionTheme.applyPaymentMethods.bankIcon} />
               </div>
               <div>
-                <h3 className="text-base font-semibold text-blue-950 sm:text-lg">
+                <h3 className={jysSectionTheme.applyPaymentMethods.cardTitle}>
                   Payment for Indonesia Participants
                 </h3>
-                <p className="text-xs text-slate-600 sm:text-sm">Transfer via Indonesian banks.</p>
+                <p className={jysSectionTheme.applyPaymentMethods.cardSubtitle}>
+                  Transfer via Indonesian banks.
+                </p>
               </div>
             </div>
 
             {/* Logo/slot bank */}
-            <div className="mt-5 grid grid-cols-2 gap-4">
+            <div className={jysSectionTheme.applyPaymentMethods.banksGrid}>
               {[
                 { name: 'BCA', src: '/img/bca-logo.png' },
                 { name: 'BNI', src: '/img/bni-logo.png' },
                 { name: 'BRI', src: '/img/bri-logo.png' },
                 { name: 'Mandiri', src: '/img/mandiri-logo.png' },
               ].map(bank => (
-                <div
-                  key={bank.name}
-                  className="flex h-16 items-center justify-center rounded-2xl bg-white ring-1 ring-slate-200"
-                >
+                <div key={bank.name} className={jysSectionTheme.applyPaymentMethods.bankLogoCard}>
                   <Image
                     src={bank.src}
                     alt={`${bank.name} logo`}
                     width={140}
                     height={56}
-                    className="h-10 w-auto object-contain"
+                    className={jysSectionTheme.applyPaymentMethods.bankLogoImage}
                   />
                 </div>
               ))}
@@ -58,43 +58,53 @@ export default function FullyFundedPaymentMethodsSection() {
           </div>
 
           {/* Payment for International Participants Only */}
-          <div className="flex h-full flex-col rounded-3xl bg-white p-6 shadow-[0_16px_40px_rgba(15,23,42,0.14)] ring-1 ring-slate-200/80">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-50">
-                <Globe2 className="h-4 w-4 text-blue-700" />
+          <div className={jysSectionTheme.applyPaymentMethods.intlCard}>
+            <div className={jysSectionTheme.applyPaymentMethods.intlHeaderRow}>
+              <div className={jysSectionTheme.applyPaymentMethods.intlIconCircle}>
+                <Globe2 className={jysSectionTheme.applyPaymentMethods.intlIcon} />
               </div>
               <div>
-                <h3 className="text-base font-semibold text-blue-950 sm:text-lg">
+                <h3 className={jysSectionTheme.applyPaymentMethods.cardTitle}>
                   Payment for International Participants Only
                 </h3>
-                <p className="text-xs text-slate-600 sm:text-sm">Pay securely via PayPal.</p>
+                <p className={jysSectionTheme.applyPaymentMethods.cardSubtitle}>
+                  Pay securely via PayPal.
+                </p>
               </div>
             </div>
 
-            <div className="mt-5 space-y-4 rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200">
-              <div className="flex items-center justify-between gap-4">
+            <div className={jysSectionTheme.applyPaymentMethods.paypalBox}>
+              <div className={jysSectionTheme.applyPaymentMethods.paypalHeaderRow}>
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white">
+                  <div className={jysSectionTheme.applyPaymentMethods.paypalLogoCircle}>
                     <Image
                       src="/img/paypal-logo.png"
                       alt="PayPal logo"
                       width={48}
                       height={48}
-                      className="h-8 w-auto object-contain"
+                      className={jysSectionTheme.applyPaymentMethods.paypalLogoImage}
                     />
                   </div>
-                  <span className="text-sm font-semibold text-blue-950 sm:text-base">PayPal</span>
+                  <span className={jysSectionTheme.applyPaymentMethods.paypalTitle}>PayPal</span>
                 </div>
               </div>
 
-              <div className="space-y-2 text-xs text-slate-700 sm:text-sm">
-                <div className="flex items-center justify-between gap-4">
-                  <span className="font-medium">PayPal ID</span>
-                  <span className="font-semibold text-blue-950">@YBBadmn</span>
+              <div className={jysSectionTheme.applyPaymentMethods.paypalMeta}>
+                <div className={jysSectionTheme.applyPaymentMethods.paypalMetaRow}>
+                  <span className={jysSectionTheme.applyPaymentMethods.paypalMetaLabel}>
+                    PayPal ID
+                  </span>
+                  <span className={jysSectionTheme.applyPaymentMethods.paypalMetaValue}>
+                    @YBBadmn
+                  </span>
                 </div>
-                <div className="flex items-center justify-between gap-4">
-                  <span className="font-medium">PayPal Mail</span>
-                  <span className="font-semibold text-blue-950">ybb.admn@gmail.com</span>
+                <div className={jysSectionTheme.applyPaymentMethods.paypalMetaRow}>
+                  <span className={jysSectionTheme.applyPaymentMethods.paypalMetaLabel}>
+                    PayPal Mail
+                  </span>
+                  <span className={jysSectionTheme.applyPaymentMethods.paypalMetaValue}>
+                    ybb.admn@gmail.com
+                  </span>
                 </div>
               </div>
             </div>
@@ -102,7 +112,7 @@ export default function FullyFundedPaymentMethodsSection() {
         </div>
 
         {/* Notes below cards */}
-        <div className="mt-4 grid gap-6 text-xs leading-relaxed text-slate-600 sm:grid-cols-2 sm:text-sm">
+        <div className={jysSectionTheme.applyPaymentMethods.notesGrid}>
           <p>
             Please note that your participation in the Japan Youth Summit will be officially
             confirmed after payment of the registration fee. Please ensure you complete this step

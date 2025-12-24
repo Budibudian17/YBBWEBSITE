@@ -60,22 +60,18 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
   const ctaHref = meta.open ? '/apply' : undefined;
 
   return (
-    <main className="relative">
+    <main className={jysSectionTheme.programDetail.mainWrapper}>
       {/* Custom hero tanpa breadcrumb, sesuai request */}
       <section
-        className="relative overflow-hidden bg-cover bg-center"
+        className={jysSectionTheme.programDetail.heroSection}
         style={{ backgroundImage: `url('/img/bgprogramoverview.png')` }}
       >
-        <div className="mx-auto flex min-h-[360px] max-w-7xl flex-col items-center justify-center px-6 py-24 text-center text-white sm:min-h-[420px] sm:py-28 md:py-32 lg:px-8">
-          <p className="text-base font-semibold uppercase tracking-wide text-white/90">
-            {meta.yearText}
-          </p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-            Japan Youth Summit 2026
-          </h1>
-          <p className="mt-3 text-lg font-semibold text-white/90 sm:text-xl">{meta.tagline}</p>
+        <div className={jysSectionTheme.programDetail.heroInner}>
+          <p className={jysSectionTheme.programDetail.heroYearText}>{meta.yearText}</p>
+          <h1 className={jysSectionTheme.programDetail.heroTitle}>Japan Youth Summit 2026</h1>
+          <p className={jysSectionTheme.programDetail.heroTagline}>{meta.tagline}</p>
 
-          <div className="mt-6">
+          <div className={jysSectionTheme.programDetail.heroCtaWrapper}>
             {ctaHref ? (
               <a href={ctaHref} className={jysSectionTheme.programDetail.heroCta}>
                 {ctaLabel}
@@ -86,79 +82,79 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
           </div>
         </div>
 
-        <div className="pointer-events-none absolute -right-24 -top-24 h-[24rem] w-[24rem] rounded-full bg-white/10 blur-3xl md:h-[28rem] md:w-[28rem]" />
-        <div className="pointer-events-none absolute -right-40 top-24 h-[16rem] w-[16rem] rounded-full bg-white/5 blur-2xl md:h-[18rem] md:w-[18rem]" />
+        <div className={jysSectionTheme.programDetail.heroBlurPrimary} />
+        <div className={jysSectionTheme.programDetail.heroBlurSecondary} />
       </section>
 
       {/* Info strip section (follow homepage InfoStrip styling) */}
-      <section className="relative w-full overflow-hidden bg-[#1c57b3] text-white">
-        <div className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full bg-white/15 blur-3xl" />
-        <div className="pointer-events-none absolute -right-24 top-1/3 h-80 w-80 -translate-y-1/2 rounded-full bg-white/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-28 left-1/3 h-48 w-48 rotate-12 rounded-xl bg-white/10 blur-2xl" />
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-          <ul className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            <li className="flex items-start gap-6 lg:border-r lg:border-blue-800/60 lg:px-6">
+      <section className={jysSectionTheme.programDetail.infoStripSection}>
+        <div className={jysSectionTheme.programDetail.infoStripBlurPrimary} />
+        <div className={jysSectionTheme.programDetail.infoStripBlurSecondary} />
+        <div className={jysSectionTheme.programDetail.infoStripBlurTertiary} />
+        <div className={jysSectionTheme.programDetail.infoStripContainer}>
+          <ul className={jysSectionTheme.programDetail.infoStripGrid}>
+            <li className={jysSectionTheme.programDetail.infoStripItem}>
               <div className={jysSectionTheme.programDetail.infoStripIconCircle}>
-                <CalendarDays className="h-5 w-5 text-pink-400" />
+                <CalendarDays className={jysSectionTheme.programDetail.infoStripIcon} />
               </div>
               <div>
                 <p className={jysSectionTheme.programDetail.infoStripSubtitle}>Program Date</p>
-                <h3 className="mt-1 text-2xl font-extrabold leading-tight">
+                <h3 className={jysSectionTheme.programDetail.infoStripValue}>
                   March 12 - March 15, 2026
                 </h3>
               </div>
             </li>
-            <li className="flex items-start gap-6 lg:border-r lg:border-blue-800/60 lg:px-6">
+            <li className={jysSectionTheme.programDetail.infoStripItem}>
               <div className={jysSectionTheme.programDetail.infoStripIconCircle}>
-                <MapPin className="h-5 w-5 text-pink-400" />
+                <MapPin className={jysSectionTheme.programDetail.infoStripIcon} />
               </div>
               <div>
                 <p className={jysSectionTheme.programDetail.infoStripSubtitle}>Location</p>
-                <h3 className="mt-1 text-2xl font-extrabold leading-tight">Osaka, Japan</h3>
+                <h3 className={jysSectionTheme.programDetail.infoStripValue}>Osaka, Japan</h3>
               </div>
             </li>
-            <li className="flex items-start gap-6 lg:border-r lg:border-blue-800/60 lg:px-6">
+            <li className={jysSectionTheme.programDetail.infoStripItem}>
               <div className={jysSectionTheme.programDetail.infoStripIconCircle}>
-                <Clock className="h-5 w-5 text-pink-400" />
+                <Clock className={jysSectionTheme.programDetail.infoStripIcon} />
               </div>
               <div>
                 <p className={jysSectionTheme.programDetail.infoStripSubtitle}>Duration</p>
-                <h3 className="mt-1 text-2xl font-extrabold leading-tight">4 Days</h3>
+                <h3 className={jysSectionTheme.programDetail.infoStripValue}>4 Days</h3>
               </div>
             </li>
-            <li className="flex items-start gap-6 lg:border-r lg:border-blue-800/60 lg:px-6">
+            <li className={jysSectionTheme.programDetail.infoStripItem}>
               <div className={jysSectionTheme.programDetail.infoStripIconCircle}>
-                <Users className="h-5 w-5 text-pink-400" />
+                <Users className={jysSectionTheme.programDetail.infoStripIcon} />
               </div>
               <div>
                 <p className={jysSectionTheme.programDetail.infoStripSubtitle}>Capacity</p>
-                <h3 className="mt-1 text-2xl font-extrabold leading-tight">200 Slots</h3>
+                <h3 className={jysSectionTheme.programDetail.infoStripValue}>200 Slots</h3>
               </div>
             </li>
           </ul>
         </div>
       </section>
 
-      <section className="relative bg-white">
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+      <section className={jysSectionTheme.programDetail.guidelinesSection}>
+        <div className={jysSectionTheme.programDetail.guidelinesContainer}>
           <SectionHeader eyebrow="Guidelines" title="Registration Guidelines" />
-          <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl bg-[url('/img/bgourprogram.png')] bg-cover bg-center bg-blend-multiply ring-1 ring-gray-200">
-            <div className="p-6 text-center sm:p-8">
+          <div className={jysSectionTheme.programDetail.guidelinesCard}>
+            <div className={jysSectionTheme.programDetail.guidelinesBody}>
               <div className={jysSectionTheme.programDetail.guidelinesIconCircle}>
                 <FileText className={jysSectionTheme.programDetail.guidelinesIcon} />
               </div>
-              <p className="text-base leading-7 text-gray-600">
+              <p className={jysSectionTheme.programDetail.guidelinesText}>
                 Download our comprehensive registration guide to understand the application process,
                 requirements, and important deadlines for this program.
               </p>
-              <div className="mt-6 flex justify-center">
+              <div className={jysSectionTheme.programDetail.guidelinesCtaWrapper}>
                 <a
                   href="https://drive.google.com/drive/folders/12b2NpJJFpWv5I_HrOHW0Vjiz8xckt5Wt?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={jysSectionTheme.programDetail.guidelinesButton}
                 >
-                  <Download className="h-4 w-4" />
+                  <Download className={jysSectionTheme.programDetail.guidelinesDownloadIcon} />
                   Download Guidelines
                 </a>
               </div>
@@ -167,49 +163,49 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
         </div>
       </section>
       {/* Overview + Program Application (2 cards) */}
-      <section className="relative bg-[#eef5ff]">
-        <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+      <section className={jysSectionTheme.programDetail.overviewSection}>
+        <div className={jysSectionTheme.programDetail.overviewContainer}>
           <SectionHeader eyebrow="Overview" title="Overview" />
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className={jysSectionTheme.programDetail.overviewGrid}>
             {/* Overview card */}
-            <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-gray-200">
-              <div className="flex items-start gap-4 p-6 sm:p-8">
+            <div className={jysSectionTheme.programDetail.overviewCard}>
+              <div className={jysSectionTheme.programDetail.overviewInner}>
                 <div className={jysSectionTheme.programDetail.overviewIconCircle}>
                   <Info className={jysSectionTheme.programDetail.overviewIcon} />
                 </div>
-                <div className="text-gray-700">
-                  <p className="leading-7">
+                <div className={jysSectionTheme.programDetail.overviewContent}>
+                  <p className={jysSectionTheme.programDetail.overviewText}>
                     Japan Youth Summit, organized by the Youth Break the Boundaries (YBB)
                     Foundation, is an international innovation competition and youth summit designed
                     to inspire emerging leaders and drive real impact.
                   </p>
-                  <ul className="mt-4 space-y-3">
-                    <li className="flex items-start gap-3">
+                  <ul className={jysSectionTheme.programDetail.overviewList}>
+                    <li className={jysSectionTheme.programDetail.overviewListItem}>
                       <span className={jysSectionTheme.programDetail.overviewBulletIcon}>
-                        <Check className="h-4 w-4" />
+                        <Check className={jysSectionTheme.programDetail.overviewCheckIcon} />
                       </span>
-                      <span className="leading-7">
+                      <span className={jysSectionTheme.programDetail.overviewText}>
                         Collaborate across diverse fields to implement strategies under the theme
-                        <span className="font-semibold">
+                        <span className={jysSectionTheme.programDetail.overviewHighlightText}>
                           {' '}
                           “Pioneering Innovation for Sustainable Futures.”
                         </span>
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span className="inline-flex aspect-square h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pink-600 text-white">
-                        <Check className="h-4 w-4" />
+                    <li className={jysSectionTheme.programDetail.overviewListItem}>
+                      <span className={jysSectionTheme.programDetail.overviewBulletIconAlt}>
+                        <Check className={jysSectionTheme.programDetail.overviewCheckIcon} />
                       </span>
-                      <span className="leading-7">
+                      <span className={jysSectionTheme.programDetail.overviewText}>
                         Elevate leadership through discussions, cultural exchange, and hands-on
                         sessions.
                       </span>
                     </li>
-                    <li className="flex items-start gap-3">
-                      <span className="inline-flex aspect-square h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pink-600 text-white">
-                        <Check className="h-4 w-4" />
+                    <li className={jysSectionTheme.programDetail.overviewListItem}>
+                      <span className={jysSectionTheme.programDetail.overviewBulletIconAlt}>
+                        <Check className={jysSectionTheme.programDetail.overviewCheckIcon} />
                       </span>
-                      <span className="leading-7">
+                      <span className={jysSectionTheme.programDetail.overviewText}>
                         Advance Sustainable Development Goals (SDGs): Education (SDG 4), Economy
                         (SDG 8), Industry & Innovation (SDG 9), Sustainable Cities (SDG 11), and
                         Climate Action (SDG 13).
@@ -221,25 +217,25 @@ export default function ProgramDetailPage({ params }: { params: { slug: string }
             </div>
 
             {/* Program Application card */}
-            <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-gray-200">
-              <div className="relative aspect-[16/9]">
+            <div className={jysSectionTheme.programDetail.applicationCard}>
+              <div className={jysSectionTheme.programDetail.applicationImageWrapper}>
                 <Image
                   src="/img/coverjysbrosur.png"
                   alt="Program Cover"
                   fill
                   sizes="(min-width:1024px) 50vw, 100vw"
-                  className="object-cover"
+                  className={jysSectionTheme.programDetail.applicationImage}
                   priority={false}
                 />
               </div>
-              <div className="p-6 text-center sm:p-8">
-                <h3 className="text-xl font-extrabold text-blue-950 sm:text-2xl">
+              <div className={jysSectionTheme.programDetail.applicationBody}>
+                <h3 className={jysSectionTheme.programDetail.applicationTitle}>
                   Join our Japan Youth Summit 2025
                 </h3>
-                <p className="mt-2 text-sm text-gray-600">
+                <p className={jysSectionTheme.programDetail.applicationSubtitle}>
                   Secure your spot and be part of an inspiring cohort of young leaders.
                 </p>
-                <div className="mt-6">
+                <div className={jysSectionTheme.programDetail.applicationCtaWrapper}>
                   {ctaHref ? (
                     <a
                       href={ctaHref}

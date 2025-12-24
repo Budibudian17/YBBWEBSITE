@@ -1,4 +1,5 @@
 import SectionHeader from '@/components/ui/SectionHeader';
+import { jysSectionTheme } from '@/lib/theme/jys-components';
 
 const steps = [
   {
@@ -29,20 +30,16 @@ const steps = [
 
 export default function PartnershipJourneySection() {
   return (
-    <section className="px-6 py-14 sm:py-16 md:py-20 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section className={jysSectionTheme.partnersJourney.sectionWrapper}>
+      <div className={jysSectionTheme.partnersJourney.container}>
         <SectionHeader eyebrow="How It Works" title="Start Your Partnership Journey with us!" />
 
-        <div className="mt-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className={jysSectionTheme.partnersJourney.grid}>
           {steps.map(step => (
-            <div key={step.number} className="flex flex-col gap-2">
-              <span className="text-4xl font-extrabold tracking-tight text-pink-600 sm:text-5xl">
-                {step.number}
-              </span>
-              <h3 className="text-base font-extrabold text-blue-900 sm:text-lg">{step.title}</h3>
-              <p className="text-sm leading-relaxed text-slate-700 sm:text-base">
-                {step.description}
-              </p>
+            <div key={step.number} className={jysSectionTheme.partnersJourney.card}>
+              <span className={jysSectionTheme.partnersJourney.number}>{step.number}</span>
+              <h3 className={jysSectionTheme.partnersJourney.title}>{step.title}</h3>
+              <p className={jysSectionTheme.partnersJourney.description}>{step.description}</p>
             </div>
           ))}
         </div>

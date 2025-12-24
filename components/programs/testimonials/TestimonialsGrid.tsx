@@ -160,38 +160,44 @@ function TestimonialCard({ t }: { t: Testimonial }) {
   const [open, setOpen] = React.useState(false);
   return (
     <div className={jysSectionTheme.programsTestimonialsGrid.card}>
-      <div className="flex items-start gap-4">
+      <div className={jysSectionTheme.programsTestimonialsGrid.cardInnerRow}>
         <Image
           src={t.avatar}
           alt={t.name}
           width={48}
           height={48}
           sizes="48px"
-          className="h-12 w-12 rounded-full object-cover ring-2 ring-white"
+          className={jysSectionTheme.programsTestimonialsGrid.avatarImg}
         />
-        <div className="flex-1">
-          <div className="flex flex-wrap items-center gap-2">
-            <h3 className="text-lg font-extrabold text-blue-900">{t.name}</h3>
+        <div className={jysSectionTheme.programsTestimonialsGrid.contentCol}>
+          <div className={jysSectionTheme.programsTestimonialsGrid.headerRow}>
+            <h3 className={jysSectionTheme.programsTestimonialsGrid.name}>{t.name}</h3>
             <span className={jysSectionTheme.programsTestimonialsGrid.countryChip}>
-              <span className="text-base leading-none">
+              <span className={jysSectionTheme.programsTestimonialsGrid.flagEmoji}>
                 {flagEmojiFromCode(countryCodeMap[t.country] || '')}
               </span>{' '}
               {t.country}
             </span>
             <span className={jysSectionTheme.programsTestimonialsGrid.yearPill}>{t.year}</span>
           </div>
-          <p className="mt-3 text-sm leading-6 text-slate-700">{open ? t.full : t.quote}</p>
+          <p className={jysSectionTheme.programsTestimonialsGrid.quote}>
+            {open ? t.full : t.quote}
+          </p>
           <button
             type="button"
             onClick={() => setOpen(v => !v)}
-            className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-blue-700 hover:text-blue-800"
+            className={jysSectionTheme.programsTestimonialsGrid.readMoreButton}
           >
             Read Full Testimonial{' '}
-            <ChevronDown className={`h-4 w-4 transition-transform ${open ? 'rotate-180' : ''}`} />
+            <ChevronDown
+              className={`${jysSectionTheme.programsTestimonialsGrid.readMoreIcon} ${
+                open ? 'rotate-180' : ''
+              }`}
+            />
           </button>
-          <div className="my-4 h-px w-full bg-slate-200" />
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-slate-600">{t.role}</span>
+          <div className={jysSectionTheme.programsTestimonialsGrid.divider} />
+          <div className={jysSectionTheme.programsTestimonialsGrid.metaRow}>
+            <span className={jysSectionTheme.programsTestimonialsGrid.roleText}>{t.role}</span>
             <Stars n={t.rating} />
           </div>
         </div>
@@ -202,10 +208,10 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 
 export default function TestimonialsGrid() {
   return (
-    <section className="px-6 py-12 sm:py-14 md:py-16 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section className={jysSectionTheme.programsTestimonialsGrid.sectionWrapper}>
+      <div className={jysSectionTheme.programsTestimonialsGrid.container}>
         <SectionHeader eyebrow="Participant Voices" title="What they say" />
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className={jysSectionTheme.programsTestimonialsGrid.grid}>
           {data.map(t => (
             <TestimonialCard key={`${t.name}-${t.year}`} t={t} />
           ))}
