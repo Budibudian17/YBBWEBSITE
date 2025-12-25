@@ -597,8 +597,8 @@ export const jysSectionTheme = {
     checkbox: 'h-4 w-4 rounded border-white/30 bg-white/20 text-pink-600 focus:ring-pink-300',
     primaryButton:
       'inline-flex w-full items-center justify-center rounded-md bg-pink-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2',
-    forgotPasswordLink: 'font-semibold text-white hover:text-pink-200',
-    switchModeLink: 'font-semibold text-white underline hover:text-pink-200',
+    forgotPasswordLink: 'font-semibold text-pink-700 hover:text-pink-800',
+    switchModeLink: 'font-semibold text-pink-700 underline hover:text-pink-800',
   },
   applyImportant: {
     card: 'overflow-hidden rounded-2xl bg-pink-50 p-6 shadow-[0_10px_40px_rgba(2,6,23,0.06)] ring-1 ring-pink-200 sm:p-8',
